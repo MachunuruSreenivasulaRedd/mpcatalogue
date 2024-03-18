@@ -6,7 +6,7 @@
 }
 .adminContainer{
     background-color: #e7e7e7;
-    height: 100vh;
+    height: 100%;
 }
 .vectorSection{
     display: flex;
@@ -25,7 +25,7 @@
     margin:20px;
 }
 button{
-width:130px;
+width:150px;
 margin:10px;
 }
 .addBtn{
