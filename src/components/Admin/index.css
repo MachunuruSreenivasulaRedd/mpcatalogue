@@ -1,0 +1,58 @@
+.vector{
+    height:200px;
+    width:200px;
+    border-radius: 8px;
+    margin-top:20px
+}
+.adminContainer{
+    background-color: #e7e7e7;
+    height: 100vh;
+}
+.vectorSection{
+    display: flex;
+    justify-content: center;
+}
+.salutation{
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+.updatesContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:20px;
+}
+button{
+width:130px;
+margin:10px;
+}
+.addBtn{
+    background-color:#04AA6D;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+}
+.updateBtn{
+    background-color:#008CBA;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+}
+.delBtn{
+    background-color:#f44336;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+}
+.userBtn{
+    background-color:#555555;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+}
