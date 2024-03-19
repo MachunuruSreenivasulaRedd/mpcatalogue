@@ -4,7 +4,8 @@
     justify-content: space-between;
     background-color:gold;
     margin:10px;
-    height:150px;
+    margin-bottom: 0px;
+    height:auto;
 }
 .personImage{
     width:80px;
@@ -38,4 +39,40 @@
 .partySymbol{
     margin-top:50px;
     margin-right:10px
+}
+.show{
+    display: block;
+    background-color: gold;
+}
+.hide{
+    display: none;
+}
+.candidateSummary{
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    margin:15px;
+    padding: 10px;
+}
+.mpContainer{
+    background-color: #000000;
+    height:auto;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:10px;
+    margin-left:40px;
+}
+.linkIcon{
+    font-size: 25px;
+    color:black;
+    margin-right:60px;
+    margin-bottom: 10px;
+}
+.linkIcon1{
+    font-size: 25px;
+    color:black;
+    margin-right: 30px;
 }
