@@ -11,7 +11,7 @@ const MpListItem = props => {
     const {item}=props
     const [isMore,setMore] = useState(false)
     const getMore = () => {
-        setMore({isMore:!isMore})
+        setMore(!isMore)
     }
     return(
         <div className='mpContainer'>

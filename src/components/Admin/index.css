@@ -56,3 +56,47 @@ margin:10px;
     border-radius: 8px;
     padding: 10px;
 }
+.showForm{
+display: flex;
+justify-content: center;
+
+}
+.hideForm{
+    display: none;
+}
+.addFormContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+}
+.input{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    border:none;
+    background-color: #e7e7e7;
+    height: 30px;
+    font-size: bold;
+    padding: 5px;
+    border-radius: 12px;
+    margin:5px
+}
+label{
+font-size: 18px;
+color:#000000;
+font-weight: 400;
+}
+.addCanBtn{
+    background-color:#04AA6D;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+    align-self: center;
+}
