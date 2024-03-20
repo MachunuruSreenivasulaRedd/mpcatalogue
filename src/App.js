@@ -39,10 +39,11 @@ const List=[
 
 class App extends Component {
   state ={mpList:List}
+
   onAddCandidate = data => {
     const {mpList}=this.state
-    this.setState([...mpList,data])
-    console.log(mpList)
+    this.setState({mpList:[...mpList,data]})
+    console.log(data)
   }
   render(){
     const {mpList}=this.state

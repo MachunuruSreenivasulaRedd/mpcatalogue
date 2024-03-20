@@ -11,7 +11,7 @@ const MpList = () => (
         return(
         <div className="listContainer">
             <div className="topContainer">
-                <h1 className="slogan">Aapke Umeedwar</h1>
+                <h1 className="slogan">Bharatpol</h1>
             </div>
             <hr className="line" />
             <div className="locationFilter">
@@ -19,7 +19,7 @@ const MpList = () => (
             </div>
             <div className="candidatesList">
                 {mpList.map(item=> (
-                    <MpListItem key={item.id} item={item} />
+                    <MpListItem key={item.key} item={item} />
                 ))}
             </div>
         </div>

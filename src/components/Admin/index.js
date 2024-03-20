@@ -66,7 +66,7 @@ const  Admin = () => {
                     <input type="text" id="summary" placeholder='Give Summary of Candidate' value={summary} onChange={e=> setsummary(e.target.value)}/>
                 </div>
                 
-                <button className='addCanBtn' type="submit" onClick={()=>onAddCandidate({name,party,wiki,summary,symbol,image})}>Add</button>
+                <button className='addCanBtn' type="submit" onClick={()=>onAddCandidate({key,name,party,wiki,summary,symbol,image})}>Add</button>
             </form>
         </div>
       </div>
