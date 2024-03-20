@@ -6,12 +6,15 @@ import ListContext from '../../context/ListContext'
 const  Admin = () => {
     const [isUserActive,setUserActive]= useState(false)
     const [isAdd,setCandidate]=useState(false)
+    const [constituency,setconstituency]=useState()
     const [name,setName]=useState("")
     const [party,setparty]=useState("")
     const [wiki,setwiki]=useState("")
-    const [summary,setsummary]=useState("")
+    const [about,setAbout]=useState("")
     const [symbol,setsymbol]=useState("")
     const [image,setimage]=useState()
+    const [youtube,setTube]=useState("")
+    const [X,setX]=useState("")
     const addCandidate = () => {
         setCandidate(!isAdd)
     }
@@ -37,16 +40,28 @@ const  Admin = () => {
             <button className='userBtn' type="button" onClick={()=>userSetter()}>Go to User View</button>
         </div>
         <div className={isAdd?'showForm':'hideForm'}>
-            <form className='addFormContainer' onSubmit={()=>onAddCandidate({key,name,party,wiki,summary,symbol,image})}>
+            <form className='addFormContainer' onSubmit={()=>onAddCandidate({key,name,party,wiki,about,youtube,X,symbol,image})}>
                 <h1 className='addHeading'>
                     Add Candidate Details
                 </h1>
                 <div className='input'>
-                    <label htmlFor='name' className='name'>Name of Candidate</label>
+                    <label htmlFor='constituency' className='selection'>select constituency</label>
+                    <select value={constituency} id="constituency" onSelect={e=> setconstituency(e.target.value)}>
+                        <option value="North Mumbai">North Mumbai</option>
+                        <option value="Maharastra">Maharashtra</option>
+                        <option value="Mumbai North-East">Mumbai North-East</option>
+                        <option value="Mumbai North-central">Mumbai North-central</option>
+                        <option value="Mumbai North-west">Mumbai North West</option>
+                        <option value="Mumbai South-central">Mumbai South-central</option>
+                        <option value="Mumbai South">Mumbai South</option>
+                    </select>
+                </div>
+                <div className='input'>
+                    <label htmlFor='name' className='name'>Candidate Name</label>
                     <input type="text" id="name" value={name} onChange={e=> setName(e.target.value)} placeholder='Enter Candidate Name'/>
                 </div>
                 <div className='input'>
-                    <label htmlFor='photo' className='photo'>Upload Image</label>
+                    <label htmlFor='photo' className='photo'>Upload Photo</label>
                     <input type="file" id="photo" value={image} placeholder='upload Image' onClick={e=> setimage(e.target.value)}/>
                 </div>
                 <div className='input'>
@@ -62,11 +77,18 @@ const  Admin = () => {
                     <input type="text" id="partylink" placeholder='Enter Party Link' value={symbol} onChange={e=> setsymbol(e.target.value)}/>
                 </div>
                 <div className='input'>
-                    <label htmlFor='summary' className='summary'>Summary</label>
-                    <input type="text" id="summary" placeholder='Give Summary of Candidate' value={summary} onChange={e=> setsummary(e.target.value)}/>
+                    <label htmlFor='summary' className='summary'>About</label>
+                    <input type="text" id="summary" placeholder='Give Summary of Candidate' value={about} onChange={e=> setAbout(e.target.value)}/>
                 </div>
-                
-                <button className='addCanBtn' type="submit" onClick={()=>onAddCandidate({key,name,party,wiki,summary,symbol,image})}>Add</button>
+                <div className='input'>
+                    <label htmlFor='youtube' className='link'>Enter Youtube Link</label>
+                    <input type="text" id="youtube" placeholder='Enter Youtube Link' value={youtube} onChange={e=> setTube(e.target.value)}/>
+                </div>
+                <div className='input'>
+                    <label htmlFor='x' className='link'>Enter X Link</label>
+                    <input type="text" id="X" placeholder='Enter X Link' value={X} onChange={e=> setX(e.target.value)}/>
+                </div>
+                <button className='addCanBtn' type="submit" onClick={()=>onAddCandidate({key,name,party,wiki,about,youtube,X,symbol,image})}>Add</button>
             </form>
         </div>
       </div>

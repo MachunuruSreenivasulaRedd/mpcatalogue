@@ -83,14 +83,14 @@ input{
     background-color: #e7e7e7;
     height: 30px;
     font-size: bold;
-    padding: 5px;
+    padding: 10px;
     border-radius: 12px;
     margin:5px
 }
 label{
-font-size: 18px;
+font-size: 14px;
 color:#000000;
-font-weight: 400;
+font-weight: 500;
 }
 .addCanBtn{
     background-color:#04AA6D;
@@ -99,4 +99,9 @@ font-weight: 400;
     border-radius: 8px;
     padding: 10px;
     align-self: center;
+}
+#constituency{
+    border: none;
+    background-color: #e7e7e7;
+    height: 30px;
 }

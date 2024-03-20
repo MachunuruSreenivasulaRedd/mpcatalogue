@@ -8,12 +8,14 @@ import { Component } from 'react';
 const List=[
 { 
   key:1,
-  image:"https://www.lokatantra.in/uploads/candidates_images/Gopal-Shetty-251x300.jpg",
-  name:"Gopal Chinnayya Shetty",
-  wiki:"https://en.wikipedia.org/wiki/Gopal_Shetty",
+  image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Shri_Piyush_Goyal_Minister_of_Commerce_and_Industry_addressing_a_press_conference_%284%29.jpg/330px-Shri_Piyush_Goyal_Minister_of_Commerce_and_Industry_addressing_a_press_conference_%284%29.jpg",
+  name:"Piyush vedprakash Goyal",
+  wiki:"https://en.wikipedia.org/wiki/Piyush_Goyal",
   party:"BJP",
+  youtube:"",
+  X:"",
   symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bharatiya_Janata_Party_logo.svg/270px-Bharatiya_Janata_Party_logo.svg.png",
-  summary:"Gopal Chinayya Shetty is a Mangalore based Indian politician. He is a member of parliament from Mumbai North. Previously, he was a 2 terms Member of Legislative Assembly (MLA) from the Borivali Vidhan Sabha constituency and 3 terms Corporator of Brihanmumbai Mahanagar Corporation (BMC) from 1992-2004"
+  summary:"Piyush Vedprakash Goyal (born 13 June 1964) is an Indian politician and chartered accountant serving as a cabinet minister in the Government of India, having portfolios such as Minister of Textiles, Minister of Commerce and Industry and Minister of Consumer Affairs, Food and Public Distribution. He was elevated to the Cabinet Minister position on 3 September 2017"
 
 },
 { 
@@ -22,6 +24,8 @@ const List=[
   name:"Gajanan Chandrakant Kirtikar",
   wiki:"https://en.wikipedia.org/wiki/Gajanan_Kirtikar",
   party:"shivsena",
+  youtube:"",
+  X:"",
   symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Logo_of_Shiv_Sena.svg/270px-Logo_of_Shiv_Sena.svg.png",
   summary:'Gajanan Kirtikar is Leader of Shivsena and a Member of Parliament (MP) from Mumbai North West (Lok Sabha constituency) in Mumbai, Maharashtra, India.[1] He has been a Member of Legislative Assembly from Malad assembly constituency in Mumbai from 1990 to 2009'
 },
@@ -31,6 +35,8 @@ const List=[
   name:"zeeshan Siddique",
   wiki:"https://en.wikipedia.org/wiki/Zeeshan_Siddique",
   party:"congress",
+  youtube:"",
+  X:"",
   symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/225px-Indian_National_Congress_hand_logo.svg.png",
   summary:'Zeeshan Baba Siddique (born 3 October 1992) is an Indian politician from the Indian National Congress. He is currently a Member of the Legislative Assembly in Maharashtra Legislative Assembly.[1] & President of Mumbai Youth Congress.'
 }

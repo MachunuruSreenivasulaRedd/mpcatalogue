@@ -11,11 +11,11 @@ const MpList = () => (
         return(
         <div className="listContainer">
             <div className="topContainer">
-                <h1 className="slogan">Bharatpol</h1>
+                <h1 className="slogan">BharatPol</h1>
             </div>
             <hr className="line" />
             <div className="locationFilter">
-                <p className="location"> <GoLocation className="locationIcon"/> Navi Mumbai Parliamentary Constitution</p>
+                <p className="location"> <GoLocation className="locationIcon"/> NorthMumbai Parliamentary Constitution</p>
             </div>
             <div className="candidatesList">
                 {mpList.map(item=> (

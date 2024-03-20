@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { FaSquareTwitter } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaWikipediaW } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
@@ -32,11 +32,11 @@ const MpListItem = props => {
                 {item.summary}
             </div>
             <div className='links'>
-               <a href="#" ><FaSquareTwitter className='linkIcon'/></a>
+               <a href={item.X} ><FaXTwitter className='linkIcon'/></a>
                <a href="#" ><FaFacebookSquare className='linkIcon'/></a>
                <a href={item.wiki} ><FaWikipediaW className='linkIcon1'/></a>
                <a href="#" ><FaInstagramSquare className='linkIcon'/></a>
-               <a href="#" ><AiOutlineYoutube className='linkIcon'/></a>
+               <a href={item.youtube} ><AiOutlineYoutube className='linkIcon'/></a>
                <a href="#" ><PiTelevisionBold className='linkIcon1'/></a>
             </div>
         </div>
