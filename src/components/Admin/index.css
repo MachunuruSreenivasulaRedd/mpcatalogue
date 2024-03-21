@@ -100,7 +100,7 @@ font-weight: 500;
     padding: 10px;
     align-self: center;
 }
-#constituency{
+#constituency,#state{
     border: none;
     background-color: #e7e7e7;
     height: 30px;
