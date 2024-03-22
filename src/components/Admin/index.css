@@ -35,7 +35,7 @@ margin:10px;
     border-radius: 8px;
     padding: 10px;
 }
-.updateBtn{
+.listBtn{
     background-color:#008CBA;
     border:none;
     color:white;
@@ -104,4 +104,54 @@ font-weight: 500;
     border: none;
     background-color: #e7e7e7;
     height: 30px;
+}
+.sections{
+    display: flex;
+    flex-direction: row;
+    color:black;    
+    margin: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.section{
+    margin-right: 350px;;
+}
+.showList{
+    display: block;
+    background-color: white;
+}
+.hideList{
+    display: none;
+}
+#itemSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;;
+}
+.section1{
+    margin-left: -150px;
+}
+.section2{
+    margin-left: 225px;
+}
+.member{
+    display: flex;
+    flex-direction: row;
+}
+.details{
+    font-weight: 400;
+    font-size: 12px;
+}
+.canName{
+    width:150px;
+}
+.details{
+    width:25%;
+}
+.candidateImage{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    margin-right:10px;
 }

@@ -18,11 +18,15 @@ function Admin() {
     const [image, setimage] = useState()
     const [youtube, setTube] = useState("")
     const [X, setX] = useState("")
+    const [showList,setList]= useState(false)
     const addCandidate = () => {
         setCandidate(!isAdd)
     }
     const userSetter = () => {
         setUserActive({ isUserActive: !isUserActive })
+    }
+    const listCandidates = () => {
+        setList(!showList)
     }
     return (
         <ListContext.Consumer>
@@ -37,11 +41,53 @@ function Admin() {
                             </div>
                             <h1 className='salutation'> Welcome to Admin Panel..!</h1>
                             <div className='UpdatesContainer'>
+                                <button className='listBtn' type="button" onClick={()=> listCandidates()}>list of Candidates</button>
                                 <button className='addBtn' type="button" onClick={() => addCandidate()}>Add Candidate</button>
-                                <button className='updateBtn' type="button">Update Candidate</button>
                                 <button className='delBtn' type="button">remove candidate</button>
                                 <button className='userBtn' type="button" onClick={() => userSetter()}>Go to User View</button>
                             </div>
+                            <div className={showList ? 'showList':'hideList'} >
+                            <div className='input'>
+                                        <label htmlFor="states" className='selection'>Select State</label>
+                                        <select value={state} id="state" onSelect={e => setState(e.target.value)}>
+                                            {states.map(item => (
+                                                <option value={item}>{item}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='constituency' className='selection'>select constituency</label>
+                                        <select value={constituency} id="constituency" onSelect={e => setconstituency(e.target.value)}>
+                                            <option value="North Mumbai">North Mumbai</option>
+                                            <option value="Maharastra">Maharashtra</option>
+                                            <option value="Mumbai North-East">Mumbai North-East</option>
+                                            <option value="Mumbai North-central">Mumbai North-central</option>
+                                            <option value="Mumbai North-west">Mumbai North West</option>
+                                            <option value="Mumbai South-central">Mumbai South-central</option>
+                                            <option value="Mumbai South">Mumbai South</option>
+                                        </select>
+                                    </div>
+                                    <div className='sections'>
+                                        <div className='section'>Member</div>
+                                        <div className='section'>Party</div>
+                                        <div className='section1'>Votes</div>
+                                        <div className='section2'>Details</div>
+                                    </div>
+                                <div className='contentContainer'>
+                                    {mpList.map(item=> (
+                                       <div id="itemSection">
+                                        <div className='member'>
+                                            <img src={item.image} alt={item.name} className='candidateImage' />
+                                            <p className='canName'>{item.name}</p>
+                                        </div>
+                                        <div className='PartyNames'>{item.party}</div>
+                                        <div className='votes'>1000</div>
+                                        <div className='details'>{item.summary}</div></div>
+                                    ))}
+                                
+                                </div>
+                                
+                                </div>
                             <div className={isAdd ? 'showForm' : 'hideForm'}>
                                 <form className='addFormContainer' onSubmit={() => onAddCandidate({ key, name, party, wiki, about, youtube, X, symbol, image })}>
                                     <h1 className='addHeading'>
