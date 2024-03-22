@@ -18,7 +18,7 @@ const MpList = () => {
         <div className="listContainer">
             <div className="topContainer">
                 <h1 className="slogan">BharatPol</h1>
-                <div className='input'>
+                <div className='inp'>
                                         <label htmlFor="states" className='selection'>State</label>
                                         <select value={state} id="state" onSelect={e => setState(e.target.value)}>
                                             {states.map(item => (
@@ -26,7 +26,7 @@ const MpList = () => {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className='input'>
+                                    <div className='inp'>
                                         <label htmlFor='constituency' className='selection'>constituency</label>
                                         <select value={constituency} id="constituency" onSelect={e => setconstituency(e.target.value)}>
                                             <option value="North Mumbai">North Mumbai</option>

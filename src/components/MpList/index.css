@@ -4,13 +4,14 @@
 }
 .topContainer{
     background-color: gold;
-    margin-top:-10px;
+    margin-top:-5px;
     padding-left:10px;
     padding-bottom: 5px;
     display: flex;
     flex-direction: row;
+    justify-content: space-around ;
 }
-.input{
+.inp{
     width:90px;
 }
 .slogan{

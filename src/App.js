@@ -20,7 +20,7 @@ const List=[
 },
 { 
   key:2,
-  image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Gajanan_Kirtikar.jpg/330px-Gajanan_Kirtikar.jpg",
+  image:"https://www.lokatantra.in/uploads/candidates_images/K8HXP7uA.jpg",
   name:"Gajanan Chandrakant Kirtikar",
   wiki:"https://en.wikipedia.org/wiki/Gajanan_Kirtikar",
   party:"shivsena",
@@ -35,6 +35,28 @@ const List=[
   name:"zeeshan Siddique",
   wiki:"https://en.wikipedia.org/wiki/Zeeshan_Siddique",
   party:"congress",
+  youtube:"",
+  X:"",
+  symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/225px-Indian_National_Congress_hand_logo.svg.png",
+  summary:'Zeeshan Baba Siddique (born 3 October 1992) is an Indian politician from the Indian National Congress. He is currently a Member of the Legislative Assembly in Maharashtra Legislative Assembly.[1] & President of Mumbai Youth Congress.'
+},
+{ 
+  key:4,
+  image:"https://media.istockphoto.com/id/1200971027/vector/vector-illustration-of-indian-political-leader.jpg?s=612x612&w=0&k=20&c=BcuGix1OLdLi0Y89PlF8Nl5tvOACWkXfnDnsb-AKc8I=",
+  name:"zeeshan Siddique",
+  wiki:"https://en.wikipedia.org/wiki/Zeeshan_Siddique",
+  party:"RP1",
+  youtube:"",
+  X:"",
+  symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/225px-Indian_National_Congress_hand_logo.svg.png",
+  summary:'Zeeshan Baba Siddique (born 3 October 1992) is an Indian politician from the Indian National Congress. He is currently a Member of the Legislative Assembly in Maharashtra Legislative Assembly.[1] & President of Mumbai Youth Congress.'
+},
+{ 
+  key:5,
+  image:"https://media.istockphoto.com/id/1200971027/vector/vector-illustration-of-indian-political-leader.jpg?s=612x612&w=0&k=20&c=BcuGix1OLdLi0Y89PlF8Nl5tvOACWkXfnDnsb-AKc8I=",
+  name:"zeeshan Siddique",
+  wiki:"https://en.wikipedia.org/wiki/Zeeshan_Siddique",
+  party:"RP1",
   youtube:"",
   X:"",
   symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/225px-Indian_National_Congress_hand_logo.svg.png",

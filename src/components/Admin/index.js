@@ -18,6 +18,7 @@ function Admin() {
     const [image, setimage] = useState()
     const [youtube, setTube] = useState("")
     const [X, setX] = useState("")
+    const [instagram, setinsta] = useState("")
     const [showList,setList]= useState(false)
     const addCandidate = () => {
         setCandidate(!isAdd)
@@ -28,6 +29,7 @@ function Admin() {
     const listCandidates = () => {
         setList(!showList)
     }
+    const getCandidates = () => {}
     return (
         <ListContext.Consumer>
             {value => {
@@ -43,7 +45,6 @@ function Admin() {
                             <div className='UpdatesContainer'>
                                 <button className='listBtn' type="button" onClick={()=> listCandidates()}>list of Candidates</button>
                                 <button className='addBtn' type="button" onClick={() => addCandidate()}>Add Candidate</button>
-                                <button className='delBtn' type="button">remove candidate</button>
                                 <button className='userBtn' type="button" onClick={() => userSetter()}>Go to User View</button>
                             </div>
                             <div className={showList ? 'showList':'hideList'} >
@@ -67,6 +68,7 @@ function Admin() {
                                             <option value="Mumbai South">Mumbai South</option>
                                         </select>
                                     </div>
+                                    <button  className='goBtn' type="button" onClick={()=> getCandidates}>Go </button>
                                     <div className='sections'>
                                         <div className='section'>Member</div>
                                         <div className='section'>Party</div>
@@ -130,7 +132,7 @@ function Admin() {
                                         <input type="text" id="wikilink" placeholder='Enter Wiki Link' value={wiki} onChange={e => setwiki(e.target.value)} />
                                     </div>
                                     <div className='input'>
-                                        <label htmlFor='Partylink' className='link'>Logo url</label>
+                                        <label htmlFor='Partylink' className='link'>Logo Link</label>
                                         <input type="text" id="partylink" placeholder='Enter Party Link' value={symbol} onChange={e => setsymbol(e.target.value)} />
                                     </div>
                                     <div className='input'>
@@ -140,6 +142,10 @@ function Admin() {
                                     <div className='input'>
                                         <label htmlFor='youtube' className='link'>Enter Youtube Link</label>
                                         <input type="text" id="youtube" placeholder='Enter Youtube Link' value={youtube} onChange={e => setTube(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='instagram' className='link'>Enter Instagram Link</label>
+                                        <input type="text" id="instagram" placeholder='Enter Instagram Link' value={instagram} onChange={e => setinsta(e.target.value)} />
                                     </div>
                                     <div className='input'>
                                         <label htmlFor='x' className='link'>Enter X Link</label>
