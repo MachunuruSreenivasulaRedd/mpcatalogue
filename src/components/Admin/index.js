@@ -4,7 +4,7 @@ import './index.css'
 import ListContext from '../../context/ListContext'
 
 
-const states=["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala" ,"madhya Pradesh","Maharastra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamilnadu","Telangana","Tripura","UttarPradesh","Uttarakhand","WestBengal","Andaman and NicobarIslands","chandigarh","Lakshadweeep","Dadra and Nagar Haveli and Daman and Diu","Delhi","puducherry","Ladakh"]
+const states=["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala" ,"madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamilnadu","Telangana","Tripura","UttarPradesh","Uttarakhand","WestBengal","Andaman and NicobarIslands","chandigarh","Lakshadweeep","Dadra and Nagar Haveli and Daman and Diu","Delhi","puducherry","Ladakh"]
 function Admin() {
     const [isUserActive, setUserActive] = useState(false)
     const [isAdd, setCandidate] = useState(false)
@@ -20,6 +20,7 @@ function Admin() {
     const [X, setX] = useState("")
     const [instagram, setinsta] = useState("")
     const [showList,setList]= useState(false)
+    const [filteredList,setFilteredList]=useState([])
     const addCandidate = () => {
         setCandidate(!isAdd)
     }
@@ -29,11 +30,20 @@ function Admin() {
     const listCandidates = () => {
         setList(!showList)
     }
-    const getCandidates = () => {}
     return (
         <ListContext.Consumer>
             {value => {
                 const { mpList, onAddCandidate } = value
+                const search=`${state}`
+                const getCandidates = () => {
+                    const list = mpList.filter(item => item.summary.includes(search))
+                    if(list.length> 0){
+                    setFilteredList([...filteredList, list])
+                    }
+                    else{
+                        setFilteredList([])
+                    }
+                }
                 const key = mpList.length
                 return (
                     <div>
@@ -50,7 +60,7 @@ function Admin() {
                             <div className={showList ? 'showList':'hideList'} >
                             <div className='input'>
                                         <label htmlFor="states" className='selection'>Select State</label>
-                                        <select value={state} id="state" onSelect={e => setState(e.target.value)}>
+                                        <select value={state} id="state" onChange={e => setState(e.target.value)}>
                                             {states.map(item => (
                                                 <option value={item}>{item}</option>
                                             ))}
@@ -58,7 +68,7 @@ function Admin() {
                                     </div>
                                     <div className='input'>
                                         <label htmlFor='constituency' className='selection'>select constituency</label>
-                                        <select value={constituency} id="constituency" onSelect={e => setconstituency(e.target.value)}>
+                                        <select value={constituency} id="constituency" onChange={e => setconstituency(e.target.value)}>
                                             <option value="North Mumbai">North Mumbai</option>
                                             <option value="Maharastra">Maharashtra</option>
                                             <option value="Mumbai North-East">Mumbai North-East</option>
@@ -68,15 +78,17 @@ function Admin() {
                                             <option value="Mumbai South">Mumbai South</option>
                                         </select>
                                     </div>
-                                    <button  className='goBtn' type="button" onClick={()=> getCandidates}>Go </button>
+                                    <button  className='goBtn' type="button" onClick={e=> getCandidates(e)}>Go </button>
                                     <div className='sections'>
                                         <div className='section'>Member</div>
                                         <div className='section'>Party</div>
                                         <div className='section1'>Votes</div>
                                         <div className='section2'>Details</div>
                                     </div>
+                                    {filteredList.length > 0 &&
                                 <div className='contentContainer'>
-                                    {mpList.map(item=> (
+                              
+                                    {filteredList[0].map(item=> (
                                        <div id="itemSection">
                                         <div className='member'>
                                             <img src={item.image} alt={item.name} className='candidateImage' />
@@ -88,6 +100,7 @@ function Admin() {
                                     ))}
                                 
                                 </div>
+            }
                                 
                                 </div>
                             <div className={isAdd ? 'showForm' : 'hideForm'}>
@@ -97,7 +110,7 @@ function Admin() {
                                     </h1>
                                     <div className='input'>
                                         <label htmlFor="states" className='selection'>Select State</label>
-                                        <select value={state} id="state" onSelect={e => setState(e.target.value)}>
+                                        <select value={state} id="state" onChange={e => setState(e.target.value)}>
                                             {states.map(item => (
                                                 <option value={item}>{item}</option>
                                             ))}
@@ -105,7 +118,7 @@ function Admin() {
                                     </div>
                                     <div className='input'>
                                         <label htmlFor='constituency' className='selection'>select constituency</label>
-                                        <select value={constituency} id="constituency" onSelect={e => setconstituency(e.target.value)}>
+                                        <select value={constituency} id="constituency" onChange={e => setconstituency(e.target.value)}>
                                             <option value="North Mumbai">North Mumbai</option>
                                             <option value="Maharastra">Maharashtra</option>
                                             <option value="Mumbai North-East">Mumbai North-East</option>

@@ -15,8 +15,7 @@ const List=[
   youtube:"",
   X:"",
   symbol:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bharatiya_Janata_Party_logo.svg/270px-Bharatiya_Janata_Party_logo.svg.png",
-  summary:"Piyush Vedprakash Goyal (born 13 June 1964) is an Indian politician and chartered accountant serving as a cabinet minister in the Government of India, having portfolios such as Minister of Textiles, Minister of Commerce and Industry and Minister of Consumer Affairs, Food and Public Distribution. He was elevated to the Cabinet Minister position on 3 September 2017"
-
+  summary:"Piyush Vedprakash Goyal (born 13 June 1964) is an Indian politician and chartered accountant serving as a cabinet minister in the Government of India, having portfolios such as Minister of Textiles, Minister of Commerce and Industry and Minister of Consumer Affairs, Food and Public Distribution. He was elevated to the Cabinet Minister position on 3 September 2017 from Maharashtra"
 },
 { 
   key:2,
