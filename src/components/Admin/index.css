@@ -7,6 +7,35 @@
 .adminContainer{
     background-color: #e7e7e7;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.menuContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height:150vh;
+    background-color: gold;
+}
+.highLighter{
+    width:500px;
+    margin-left: 100px;
+    text-align: center;
+}
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: gold;
+    margin-left:3px;
+}
+.spanner{
+    font-weight: bold;
+}
+.selectors{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .vectorSection{
     display: flex;
@@ -19,7 +48,7 @@
 }
 .updatesContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     margin:20px;
@@ -35,12 +64,21 @@ margin:10px;
     border-radius: 8px;
     padding: 10px;
 }
-.listBtn{
+.listActiveBtn{
     background-color:#008CBA;
     border:none;
     color:white;
     border-radius: 8px;
     padding: 10px;
+    transform: scale(0.8);
+}
+.listInactiveBtn{
+    background-color:#008CBA;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+    transform:scale(1)
 }
 .delBtn{
     background-color:#f44336;
@@ -57,11 +95,12 @@ margin:10px;
     padding: 10px;
 }
 .goBtn{
-    background-color: #008CBA;
+    background-color: lightgreen;
     border:none;
-    color:white;
+    color:black;
     border-radius: 8px;
     padding: 10px;
+    width:60px;
 }
 .showForm{
 display: flex;
@@ -111,6 +150,12 @@ font-weight: 500;
     border: none;
     background-color: #e7e7e7;
     height: 30px;
+}
+#stateName,#constituencyName{
+    border: none;
+    background-color: #e7e7e7;
+    height: 30px;
+    width:120px;
 }
 .sections{
     display: flex;

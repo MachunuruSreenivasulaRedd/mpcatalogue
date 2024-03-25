@@ -19,10 +19,11 @@ function Admin() {
     const [youtube, setTube] = useState("")
     const [X, setX] = useState("")
     const [instagram, setinsta] = useState("")
-    const [showList,setList]= useState(false)
+    const [showList,setList]= useState(true)
     const [filteredList,setFilteredList]=useState([])
     const addCandidate = () => {
         setCandidate(!isAdd)
+        setList(!showList)
     }
     const userSetter = () => {
         setUserActive({ isUserActive: !isUserActive })
@@ -48,27 +49,29 @@ function Admin() {
                 return (
                     <div>
                         {isUserActive ? <Navigate to="/mplist" /> : <div className='adminContainer'>
-                            <div className='vectorSection'>
-                                <img src="https://res.cloudinary.com/dollmqugm/image/upload/v1710762905/vecteezy_cloud-computing-modern-flat-concept-for-web-banner-design_5879539_roxi5z.jpg" className='vector' alt="vectorimage" />
-                            </div>
-                            <h1 className='salutation'> Welcome to Admin Panel..!</h1>
+                            <div className='menuContainer'>
+                            <h1 className='salutation'>BharatPol</h1>
                             <div className='UpdatesContainer'>
-                                <button className='listBtn' type="button" onClick={()=> listCandidates()}>list of Candidates</button>
+                                <button className={showList? 'listActiveBtn':'listInactiveBtn'} type="button" onClick={()=> listCandidates()}>list of Candidates</button>
                                 <button className='addBtn' type="button" onClick={() => addCandidate()}>Add Candidate</button>
                                 <button className='userBtn' type="button" onClick={() => userSetter()}>Go to User View</button>
                             </div>
+                            </div>
                             <div className={showList ? 'showList':'hideList'} >
+                                <div className='headerContainer'>
+                                <h1 className='highLighter'>LOK SABHA <br/>Candidates List</h1>
+                                <div className='selectors'>
                             <div className='input'>
-                                        <label htmlFor="states" className='selection'>Select State</label>
-                                        <select value={state} id="state" onChange={e => setState(e.target.value)}>
+                                        <label htmlFor="stateName" className='selection'>Select State</label>
+                                        <select value={state} id="stateName" onChange={e => setState(e.target.value)}>
                                             {states.map(item => (
                                                 <option value={item}>{item}</option>
                                             ))}
                                         </select>
                                     </div>
                                     <div className='input'>
-                                        <label htmlFor='constituency' className='selection'>select constituency</label>
-                                        <select value={constituency} id="constituency" onChange={e => setconstituency(e.target.value)}>
+                                        <label htmlFor='constituencyName' className='selection'>select constituency</label>
+                                        <select value={constituency} id="constituencyName" onChange={e => setconstituency(e.target.value)}>
                                             <option value="North Mumbai">North Mumbai</option>
                                             <option value="Maharastra">Maharashtra</option>
                                             <option value="Mumbai North-East">Mumbai North-East</option>
@@ -79,6 +82,9 @@ function Admin() {
                                         </select>
                                     </div>
                                     <button  className='goBtn' type="button" onClick={e=> getCandidates(e)}>Go </button>
+                                    <p><span className='spanner'>State:</span> {state}<br/> <span className='spanner'>Constituency:</span> {constituency}</p>
+                                    </div>
+                                    </div>
                                     <div className='sections'>
                                         <div className='section'>Member</div>
                                         <div className='section'>Party</div>

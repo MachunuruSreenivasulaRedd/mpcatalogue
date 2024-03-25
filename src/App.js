@@ -4,6 +4,7 @@ import Admin from './components/Admin';
 import MpList from './components/MpList';
 import ListContext from './context/ListContext'
 import { Component } from 'react';
+import Cookies from 'js-cookie';
 
 const List=[
 { 
@@ -65,17 +66,19 @@ const List=[
 ]
 
 class App extends Component {
-  state ={mpList:List}
+  state ={mpList:List,newList:["hai"]}
 
   onAddCandidate = data => {
-    const {mpList}=this.state
+    const {mpList,newList}=this.state
     this.setState({mpList:[...mpList,data]})
-    console.log(data)
+    console.log(mpList)
   }
   render(){
-    const {mpList}=this.state
+    const {mpList,items}=this.state
+    console.log(items)
+    // const data=Cookies.get('newList')
   return(
-    <ListContext.Provider value={{mpList,onAddCandidate:this.onAddCandidate}}>
+    <ListContext.Provider value={{mpList:mpList,onAddCandidate:this.onAddCandidate}}>
     <BrowserRouter>
     <Routes>
       <Route  path="/" element={<Admin/>}/>
