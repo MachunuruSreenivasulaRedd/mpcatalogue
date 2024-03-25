@@ -23,7 +23,7 @@ function Admin() {
     const [filteredList,setFilteredList]=useState([])
     const addCandidate = () => {
         setCandidate(!isAdd)
-        setList(!showList)
+        setList(false)
     }
     const userSetter = () => {
         setUserActive({ isUserActive: !isUserActive })
