@@ -37,6 +37,35 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.navHeader{
+    display: flex;
+
+
+}
+.closeMenu{
+    display: block;
+    background-color: #000000;
+    color:yellow;
+    width:50px;
+    height:40px;
+    margin-top:20px;
+}
+.hideMenuContainer{
+    display: none;
+    transition-delay: 1000ms;
+}
+.showMenu{
+    display: block;
+    background-color: #000000;
+    color:yellow;
+    width:50px;
+    height:40px;
+    margin-top: 40px;
+}
+.hideMenu{
+    display: none;
+    transition-delay: 1000ms;
+}
 .vectorSection{
     display: flex;
     justify-content: center;
