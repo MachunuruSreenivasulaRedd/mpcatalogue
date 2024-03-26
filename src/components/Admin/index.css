@@ -28,9 +28,14 @@
     justify-content: space-between;
     background-color: gold;
     margin-left:3px;
+    width:100%;
 }
 .spanner{
     font-weight: bold;
+}
+.contentContainer{
+    display: flex;
+    flex-wrap: wrap;
 }
 .selectors{
     display: flex;
@@ -86,12 +91,31 @@ button{
 width:150px;
 margin:10px;
 }
+.state{
+    list-style-type: none;
+    text-decoration: none!important;
+    text-decoration-color: transparent;
+    display: flex;
+    color:#555555;
+    font-size: 16px;
+    letter-spacing: 0.6px;
+}
+.showstatebtn{
+    background-color:#008CBA;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+}
 .addBtn{
     background-color:#04AA6D;
     border:none;
     color:white;
     border-radius: 8px;
     padding: 10px;
+}
+Link{
+    text-decoration-color: #e7e7e7;
 }
 .listActiveBtn{
     background-color:#008CBA;
@@ -180,11 +204,28 @@ font-weight: 500;
     background-color: #e7e7e7;
     height: 30px;
 }
+#stateUTName{
+    list-style-type: none;
+    text-decoration:none;
+    width:150px;
+    margin-right:200px;
+}
 #stateName,#constituencyName{
     border: none;
     background-color: #e7e7e7;
     height: 30px;
     width:120px;
+}
+.showStates{
+    display: block;
+    margin:20px;
+    background-color: #e7e7e7;
+    border-radius: 8px;
+    padding: 20px;
+    width:fit-content;
+}
+.hideStates{
+    display: none;
 }
 .sections{
     display: flex;
@@ -194,8 +235,16 @@ font-weight: 500;
     font-weight: bold;
     margin-bottom: 20px;
 }
+.sectionStates{
+    display:flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+.stateName{
+    margin-right: 100px;
+}
 .section{
-    margin-right: 350px;;
+    margin-right: 350px;
 }
 .showList{
     display: block;
