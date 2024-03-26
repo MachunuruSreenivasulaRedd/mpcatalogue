@@ -28,6 +28,7 @@ function Admin() {
     const [filteredList,setFilteredList]=useState([])
     const [showmenu,setMenu]=useState(true)
     const [showStates,setShowStates]=useState(false)
+    const [showSections,setSections] =useState(true)
     const addCandidate = () => {
         setCandidate(!isAdd)
         setList(false)
@@ -43,6 +44,7 @@ function Admin() {
     }
     const showStatesList = () => {
         setShowStates(!showStates)
+        setSections(!showSections)
     }
     return (
         <ListContext.Consumer>
@@ -74,7 +76,6 @@ function Admin() {
                             </div>
                             </div>
                             <div className={showList ? 'showList':'hideList'} >
-                            
                                 <div className='headerContainer'>
                                 <button type="button" className={showmenu ? 'hideMenu': 'showMenu'} onClick={()=>toggleMenubar()}><GiHamburgerMenu /></button>
                                 <h1 className='highLighter'>LOK SABHA <br/>Candidates List</h1>
@@ -115,7 +116,7 @@ function Admin() {
                                         </Link>
                                     ))}
                                     </div>
-                                    <div className='sections'>
+                                    <div className={showSections ? 'sections':'hideStates'}>
                                         <div className='section'>Member</div>
                                         <div className='section'>Party</div>
                                         <div className='section1'>Votes</div>
