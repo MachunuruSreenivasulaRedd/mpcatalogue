@@ -1,15 +1,18 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import './index.css'
 import ListContext from '../../context/ListContext'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const stateConstituency = [{"id":"1","name":"Andhra Pradesh", "constituencies":"25"},{"id":"2","name":"Arunachal Pradesh", "constituencies":"2"},{"id":"3","name":"Assam", "constituencies":"14"},{"id":"4","name":"Bihar", "constituencies":"40"},{"id":"5","name":"Chattisgarh", "constituencies":"11"},{"id":"6","name":"Goa", "constituencies":"2"},{"id":"7","name":"Gujarat", "constituencies":"26"},{"id":"8","name":"Haryana", "constituencies":"10"},{"id":"9","name":"Himachal Pradesh", "constituencies":"4"},{"id":"10","name":"Jharkhand", "constituencies":"14"},{"id":"11","name":"Karanataka", "constituencies":"28"},{"id":"12","name":"Kerala", "constituencies":"20"},{"id":"13","name":"Madhya Pradesh", "constituencies":"29"},{"id":"14","name":"Maharashtra", "constituencies":"48"},{"id":"15","name":"Manipur", "constituencies":"2"},
+const stateConstituency = [{id:1,"name":"Andhra Pradesh", "constituencies":"25"},{"id":"2","name":"Arunachal Pradesh", "constituencies":"2"},{"id":"3","name":"Assam", "constituencies":"14"},{"id":"4","name":"Bihar", "constituencies":"40"},{"id":"5","name":"Chattisgarh", "constituencies":"11"},{"id":"6","name":"Goa", "constituencies":"2"},{"id":"7","name":"Gujarat", "constituencies":"26"},{"id":"8","name":"Haryana", "constituencies":"10"},{"id":"9","name":"Himachal Pradesh", "constituencies":"4"},{"id":"10","name":"Jharkhand", "constituencies":"14"},{"id":"11","name":"Karanataka", "constituencies":"28"},{"id":"12","name":"Kerala", "constituencies":"20"},{"id":"13","name":"Madhya Pradesh", "constituencies":"29"},{"id":"14","name":"Maharashtra", "constituencies":"48"},{"id":"15","name":"Manipur", "constituencies":"2"},
 {"id":"16","name":"Meghalaya", "constituencies":"2"},{"id":"17","name":"Mizoram", "constituencies":"1"},{"id":"18","name":"Nagaland", "constituencies":"1"},{"id":"19","name":"Odisha", "constituencies":"21"},{"id":"20","name":"Punjab", "constituencies":"13"},{"id":"21","name":"Rajasthan", "constituencies":"25"},{"id":"22","name":"Sikkim", "constituencies":"1"},{"id":"23","name":"Tamilnadu", "constituencies":"39"},{"id":"24","name":"Telangana", "constituencies":"17"},{"id":"25","name":"Tripura", "constituencies":"2"},{"id":"26","name":"Uttar Pradesh", "constituencies":"80"},{"id":"27","name":"Uttarakhand", "constituencies":"5"},{"id":"28","name":"West Bengal", "constituencies":"42"},{"id":"29","name":"Andamon and Nicobar Islands", "constituencies":"1"},{"id":"30","name":"Chandigarh", "constituencies":"1"},{"id":"31","name":"Dadra and Nagar Haveli and Daman and Diu", "constituencies":"1"},
 {"id":"32","name":"Lakshadweep", "constituencies":"1"},{"id":"33","name":"Delhi", "constituencies":"7"},{"id":"34","name":"Puducherry", "constituencies":"1"},]
 const constituencies=["North Mumbai","Mumbai North-East","Mumbai-North-Central","Mumbai-North-West","Mumbai-South-Central","Mumbai South"]
 const states=["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala" ,"madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamilnadu","Telangana","Tripura","UttarPradesh","Uttarakhand","WestBengal","Andaman and NicobarIslands","chandigarh","Lakshadweeep","Dadra and Nagar Haveli and Daman and Diu","Delhi","puducherry","Ladakh"]
+const stateWiseDetails= [{id:1,name:"Andhra Pradesh", constituencies:25},{id:2,name:"Arunachal Pradesh", constituencies:2},{id:3,name:"Assam",constituencies:14},{id:4,name:"Bihar", "constituencies":"40"},{id:5,name:"Chattisgarh", "constituencies":"11"},{id:6,name:"Goa", "constituencies":"2"},{id:7,name:"Gujarat", "constituencies":"26"},{id:8,name:"Haryana", "constituencies":"10"},{id:9,name:"Himachal Pradesh", "constituencies":"4"},{id:10,name:"Jharkhand", "constituencies":"14"},{id:11,name:"Karanataka", "constituencies":"28"},{id:12,name:"Kerala", "constituencies":"20"},{id:13,name:"Madhya Pradesh", "constituencies":"29"},{id:14,name:"Maharashtra", "constituencies":"48"},{id:15,name:"Manipur", "constituencies":"2"},
+{id:16,name:"Meghalaya", "constituencies":"2"},{id:17,name:"Mizoram", "constituencies":"1"},{id:18,name:"Nagaland", "constituencies":"1"},{id:19,name:"Odisha", "constituencies":"21"},{id:20,name:"Punjab", "constituencies":"13"},{id:21,name:"Rajasthan", "constituencies":"25"},{id:22,name:"Sikkim", "constituencies":"1"},{id:23,name:"Tamilnadu", "constituencies":"39"},{id:24,name:"Telangana", "constituencies":"17"},{id:25,name:"Tripura", "constituencies":"2"},{id:26,name:"Uttar Pradesh", "constituencies":"80"},{id:27,name:"Uttarakhand", "constituencies":"5"},{id:28,name:"West Bengal", "constituencies":"42"},{id:29,name:"Andamon and Nicobar Islands", "constituencies":"1"},{id:30,"name":"Chandigarh", "constituencies":"1"},{id:31,name:"Dadra and Nagar Haveli and Daman and Diu", "constituencies":"1"},
+{id:32,name:"Lakshadweep", "constituencies":"1"},{id:"33",name:"Delhi", "constituencies":"7"},{id:4,name:"Puducherry", "constituencies":"1"}]
 function Admin() {
     const [isUserActive, setUserActive] = useState(false)
     const [isAdd, setCandidate] = useState(false)
@@ -29,10 +32,12 @@ function Admin() {
     const [showmenu,setMenu]=useState(true)
     const [showStates,setShowStates]=useState(true)
     const [showSections,setSections] =useState(false)
+    const [stateDetails,setStateDetails]=useState([])
+    let details=[]
     const addCandidate = () => {
         setCandidate(!isAdd)
-        setShowStates(false)
-        setList(false)
+        setShowStates(!showStates)
+        setList(!showList)
     }
     const userSetter = () => {
         setUserActive({ isUserActive: !isUserActive })
@@ -49,12 +54,21 @@ function Admin() {
         setShowStates(!showStates)
         setSections(!showSections)
     }
+    const getStateDetails = id => {
+        const details = stateWiseDetails.filter(item => item.id===id)
+        setStateDetails([...stateDetails,details])
+        setState(states[id-1])
+        console.log(state);
+        setShowStates(false)
+        
+    }
     return (
         <ListContext.Consumer>
             {value => {
-                const { mpList, onAddCandidate } = value
+                const {mpList, onAddCandidate } = value
                 const search=`${state}`
                 const getCandidates = () => {
+                    setStateDetails([])
                     const list = mpList.filter(item => item.summary.includes(search))
                     if(list.length> 0){
                     setFilteredList([...filteredList, list])
@@ -67,6 +81,8 @@ function Admin() {
                         setShowStates(true)
                     }
                 }
+                
+                const changeThisState = id => {}
                 const key = mpList.length
                 return (
                     <div>
@@ -111,20 +127,45 @@ function Admin() {
                                     </div>
                                     </div>
                                     <div className={showStates ? 'showStates': 'hideStates'}>
+                                        <p className='clicker'>Click on State to view candidates</p>
                                         <table className='sectionStates'>
+                                            <tbody>
                                             <tr>
-                                            <th className="stateName">State/Union Territory</th>
+                                            <th>State/Union Territory</th>
                                             <th className='noconstituencies'>Number of Constituencies</th>
                                             </tr>
                                     {stateConstituency.map(item => (
-                                        <Link to="/${item.id}" style={{"text-decoration": "none"}}>
+                                        
                                             <tr>
-                                            <td >{item.name}</td>
-                                            <td >{item.constituencies}</td>
+                                            <td ><button onClick={()=>getStateDetails(item.id)} key={item.id}>{item.name}</button></td>
+                                            <td ><button onClick={()=>getStateDetails(item.id)} key={item.id}>{item.constituencies}</button></td>
                                             </tr>
-                                        </Link>
+                                
                                     ))}
+                                    </tbody>
                                     </table>
+                                    </div>
+                                    <div className={stateDetails.length>0 ? 'showStateDetails':'hideStateDetails'}>
+                                        <table className='stateDetails'>      
+                                            <tbody>
+                                                <tr>
+                                            <th>State Name</th>
+                                               <th>Constituency</th>
+                                                <th>Total Voters</th>
+                                                <th>Last Election Winner Party</th>
+                                                <th>Edit/Add</th>
+                                                </tr>
+                                                {stateDetails.map(item=> (
+                                                    <tr key={item.id}>
+                                                        <td>{state}</td>
+                                                        <td>srikakulam</td>
+                                                        <td>20000</td>
+                                                        <td>YSRCP</td>
+                                                        <td><button onClick={changeThisState(item.id)} key={item.id}>Edit/Add</button></td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div className={showSections ? 'sections':'hideStates'}>
                                         <div className='section'>Member</div>
