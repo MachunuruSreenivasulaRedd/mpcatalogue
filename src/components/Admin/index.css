@@ -154,6 +154,7 @@ Link{
     border-radius: 8px;
     padding: 10px;
     width:60px;
+    height:40px;
 }
 .showForm{
 display: flex;
@@ -269,6 +270,7 @@ table {
     margin-right: 350px;
 }
 .showList{
+    width:100%;
     display: block;
     background-color: white;
 }

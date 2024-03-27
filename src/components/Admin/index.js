@@ -27,8 +27,8 @@ function Admin() {
     const [showList,setList]= useState(true)
     const [filteredList,setFilteredList]=useState([])
     const [showmenu,setMenu]=useState(true)
-    const [showStates,setShowStates]=useState(false)
-    const [showSections,setSections] =useState(true)
+    const [showStates,setShowStates]=useState(true)
+    const [showSections,setSections] =useState(false)
     const addCandidate = () => {
         setCandidate(!isAdd)
         setList(false)
@@ -55,9 +55,13 @@ function Admin() {
                     const list = mpList.filter(item => item.summary.includes(search))
                     if(list.length> 0){
                     setFilteredList([...filteredList, list])
+                    setShowStates(false)
+                    setSections(true)
                     }
                     else{
                         setFilteredList([])
+                        setSections(false)
+                        setShowStates(true)
                     }
                 }
                 const key = mpList.length
@@ -70,7 +74,7 @@ function Admin() {
                             <button type="button" className='closeMenu' onClick={()=>toggleMenubar()}><GiHamburgerMenu /></button>
                             </div>
                             <div className='UpdatesContainer'>
-                                <button className={showList? 'listActiveBtn':'listInactiveBtn'} type="button" onClick={()=> listCandidates()}>list of Candidates</button>
+                                <button className={showList? 'listActiveBtn':'listInactiveBtn'} type="button" onClick={()=> listCandidates()}>Candidates</button>
                                 <button className='addBtn' type="button" onClick={() => addCandidate()}>Add Candidate</button>
                                 <button className='userBtn' type="button" onClick={() => userSetter()}>Go to User View</button>
                             </div>
@@ -98,7 +102,8 @@ function Admin() {
                                         </select>
                                     </div>
                                     <button  className='goBtn' type="button" onClick={e=> getCandidates(e)}>Go </button>
-                                    <button onClick={()=>showStatesList()} type="button" className='showstatebtn'>States</button>
+                                    < br/>
+                                    {/* <button onClick={()=>showStatesList()} type="button" className='showstatebtn'>States</button> */}
                                     <p><span className='spanner'>State:</span> {state}<br/> <span className='spanner'>Constituency:</span> {constituency}</p>
                                     </div>
                                     </div>
