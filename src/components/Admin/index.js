@@ -31,6 +31,7 @@ function Admin() {
     const [showSections,setSections] =useState(false)
     const addCandidate = () => {
         setCandidate(!isAdd)
+        setShowStates(false)
         setList(false)
     }
     const userSetter = () => {
@@ -38,6 +39,8 @@ function Admin() {
     }
     const listCandidates = () => {
         setList(!showList)
+        setShowStates(!showStates)
+        setCandidate(false)
     }
     const toggleMenubar = () => {
         setMenu(!showmenu)
@@ -79,7 +82,7 @@ function Admin() {
                                 <button className='userBtn' type="button" onClick={() => userSetter()}>Go to User View</button>
                             </div>
                             </div>
-                            <div className={showList ? 'showList':'hideList'} >
+                            <div className={showList?'showList':'hideList'} >
                                 <div className='headerContainer'>
                                 <button type="button" className={showmenu ? 'hideMenu': 'showMenu'} onClick={()=>toggleMenubar()}><GiHamburgerMenu /></button>
                                 <h1 className='highLighter'>LOK SABHA <br/>Candidates List</h1>
