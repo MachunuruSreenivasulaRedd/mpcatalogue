@@ -103,18 +103,20 @@ function Admin() {
                                     </div>
                                     </div>
                                     <div className={showStates ? 'showStates': 'hideStates'}>
-                                        <div className='sectionStates'>
-                                            <div className="stateName">State/Union Territory</div>
-                                            <div className='noconstituencies'>Number of Constituencies</div>
-                                    </div>
+                                        <table className='sectionStates'>
+                                            <tr>
+                                            <th className="stateName">State/Union Territory</th>
+                                            <th className='noconstituencies'>Number of Constituencies</th>
+                                            </tr>
                                     {stateConstituency.map(item => (
                                         <Link to="/${item.id}" style={{"text-decoration": "none"}}>
-                                            <div className='state'>
-                                            <p id='stateUTName'>{item.name}</p>
-                                            <p className='noConstituencies'>{item.constituencies}</p>
-                                            </div>
+                                            <tr>
+                                            <td >{item.name}</td>
+                                            <td >{item.constituencies}</td>
+                                            </tr>
                                         </Link>
                                     ))}
+                                    </table>
                                     </div>
                                     <div className={showSections ? 'sections':'hideStates'}>
                                         <div className='section'>Member</div>

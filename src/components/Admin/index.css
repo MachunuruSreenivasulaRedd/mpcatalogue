@@ -237,11 +237,32 @@ font-weight: 500;
 }
 .sectionStates{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     font-weight: bold;
 }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+    flex-grow: 1;
+  }
+  tr{
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  td{
+    width:200px;
+  }
 .stateName{
-    margin-right: 100px;
+    width:198px;
 }
 .section{
     margin-right: 350px;
