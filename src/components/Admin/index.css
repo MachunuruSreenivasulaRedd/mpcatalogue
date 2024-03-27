@@ -251,6 +251,7 @@ table {
     text-align: left;
     padding: 8px;
     flex-grow: 1;
+    color:#000000;
   }
   tr{
     width:300px;
