@@ -264,7 +264,8 @@ table {
     color:#008CBA
   }
   td{
-    width:200px;
+    width:110px;
+    text-align: left;
   }
   td>button{
     border:none;
