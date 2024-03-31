@@ -272,6 +272,22 @@ table {
     background: transparent;
     cursor: pointer;
   }
+  .arrow{
+    color:yellow;
+    background-color: #000000;
+    margin-right: 10px;
+    font-size: 18px;
+
+  }
+  .backBtn{
+    color:white;
+    background-color: #000000;
+    border-radius: 8px;
+    border: none;
+    height: 30px;
+    font-size: 18px;
+    width:120px;
+  }
   th{
     width:150px;
   }
