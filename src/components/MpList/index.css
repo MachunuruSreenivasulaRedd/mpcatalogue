@@ -12,7 +12,16 @@
     justify-content: space-around ;
 }
 .inp{
-    width:90px;
+    width:80px;
+}
+#state{
+    width:80px;
+}
+#constituency{
+    width:80px;
+}
+select{
+    font-size: 9px;
 }
 .slogan{
     font-size: 20px;
