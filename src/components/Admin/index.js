@@ -566,6 +566,8 @@ function Admin(){
     const [showStates,setShowStates]=useState(true)
     const [showSections,setSections] =useState(false)
     const [stateDetails,setStateDetails]=useState([])
+    const [Id,setId]=useState()
+    const [showConstituencyDetails,setConstituencyDetails]=useState(false)
     let counter = -1
     const addCandidate = () => {
         setCandidate(!isAdd)
@@ -590,11 +592,17 @@ function Admin(){
     const getStateDetails = id => {
         const details = data.filter(item => item.id===id)
         setState(states[id-1])
+        setId(id)
         const {de}=details[0]
         setStateDetails(de)
         console.log(details)
         setShowStates(false)
 
+    }
+    const getConstituencyDetails = constituency => {
+        setconstituency(constituency)
+        setConstituencyDetails(true)
+        setStateDetails([])
     }
     return (
         <ListContext.Consumer>
@@ -608,12 +616,16 @@ function Admin(){
                     setFilteredList([...filteredList, list])
                     setShowStates(false)
                     setSections(true)
+                    setConstituencyDetails(false)
                     }
                     else{
                         setFilteredList([])
                         setSections(false)
                         setShowStates(true)
                     }
+                    setConstituencyDetails(false)
+                    setState("")
+                    setconstituency("")
                 }
                 
                 const changeThisState = id => {}
@@ -693,7 +705,7 @@ function Admin(){
                                                 {stateDetails.length>0 && stateDetails.map(item => (
                                                     <tr>
                                                         <td>{state}</td>
-                                                        <td>{Object.keys(item)}</td>
+                                                        <td><button className='candidateBtn' onClick={()=>getConstituencyDetails(Object.keys(item))}>{Object.keys(item)}</button></td>
                                                         <td>2000</td>
                                                         <td>YSRCP</td>
                                                         <td><button onClick={changeThisState(item.id)} key={item.id}>Edit/Add</button></td>
@@ -702,6 +714,57 @@ function Admin(){
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div className={showConstituencyDetails ? 'showConstituency':'hideConstituency'}>
+                                    <button className='backBtn' type="button" onClick={()=>getCandidates()}><FaArrowLeftLong className='arrow'/>Back</button>
+                                        <div className='constList'>
+                                            <h3>State:<span className='namer'>{state}</span></h3>
+                                            <h3>Constituency:<span className='namer'>{constituency}</span></h3>
+                                       
+                                        <table className="">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Party Name</th>
+                                                    <th>Party Logo</th>
+                                                    <th>Candidate Name</th>
+                                                    <th>Candidate Details</th>
+                                                    <th>Wiki Link</th>
+                                                    <th>Youtube Link</th>
+                                                    <th>Facebook Link</th>
+                                                    <th>Instagram Link</th>
+                                                    <th>X Link</th>
+                                                    <th>Edit</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>YSRCP</td>
+                                                    <td><img src="https://www.ysrcongress.com/sites/default/files/article_images/2013/12/19/fan.jpg" alt="ysrcp logo" className='partyLogo'/></td>
+                                                    <td>Pinipe Viswarup</td>
+                                                    <td>Pinipe Viswarup, (born on 2 October 1962) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet. He worked for the welfare and development of Mummidivaram</td>
+                                                    <td><a href="https://en.wikipedia.org/wiki/Pinipe_Viswarup" target="_blank" rel='noopener'>click here</a></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>TDP</td>
+                                                    <td><img src="https://res.cloudinary.com/dollmqugm/image/upload/v1711944349/tdp_vqvnot.png" alt="ysrcp logo" className='partyLogo'/></td>
+                                                    <td>Aithabathula Anandarao</td>
+                                                    <td>Aithabathula Anandarao (born on 9 October 1965) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet. He worked for the welfare and development of Mummidivaram.
+</td>
+                                                    <td><a href="https://myneta.info/andhra2014/candidate.php?candidate_id=3101" target="_blank" rel='noopener'>click here</a></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                        </div>
                                     <div className={showSections ? 'sections':'hideStates'}>
                                         <div className='section'>Member</div>
                                         <div className='section'>Party</div>
