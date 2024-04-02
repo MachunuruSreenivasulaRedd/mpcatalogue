@@ -20,8 +20,8 @@
 #constituency{
     width:80px;
 }
-select{
-    font-size: 9px;
+#state,#constituency{
+    font-size: 14px;
 }
 .slogan{
     font-size: 20px;

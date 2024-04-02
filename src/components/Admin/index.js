@@ -1,10 +1,12 @@
 import React, {useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import './index.css'
+import Popup from 'reactjs-popup';
 import ListContext from '../../context/ListContext'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import 'reactjs-popup/dist/index.css';
 
 const stateConstituency = [{id:1,"name":"Andhra Pradesh", "constituencies":"25"},{"id":2,"name":"Arunachal Pradesh", "constituencies":"2"},{"id":3,"name":"Assam", "constituencies":"14"},{"id":4,"name":"Bihar", "constituencies":"40"},{"id":5,"name":"Chattisgarh", "constituencies":"11"},{"id":6,"name":"Goa", "constituencies":"2"},{"id":7,"name":"Gujarat", "constituencies":"26"},{"id":8,"name":"Haryana", "constituencies":"10"},{"id":9,"name":"Himachal Pradesh", "constituencies":"4"},{"id":10,"name":"Jharkhand", "constituencies":"14"},{"id":11,"name":"Karanataka", "constituencies":"28"},{"id":12,"name":"Kerala", "constituencies":"20"},{"id":13,"name":"Madhya Pradesh", "constituencies":"29"},{"id":14,"name":"Maharashtra", "constituencies":"48"},{"id":15,"name":"Manipur", "constituencies":"2"},
 {"id":16,"name":"Meghalaya", "constituencies":"2"},{"id":17,"name":"Mizoram", "constituencies":"1"},{"id":18,"name":"Nagaland", "constituencies":"1"},{"id":19,"name":"Odisha", "constituencies":"21"},{"id":20,"name":"Punjab", "constituencies":"13"},{"id":21,"name":"Rajasthan", "constituencies":"25"},{"id":22,"name":"Sikkim", "constituencies":"1"},{"id":23,"name":"Tamilnadu", "constituencies":"39"},{"id":24,"name":"Telangana", "constituencies":"17"},{"id":25,"name":"Tripura", "constituencies":"2"},{"id":26,"name":"Uttar Pradesh", "constituencies":"80"},{"id":27,"name":"Uttarakhand", "constituencies":"5"},{"id":28,"name":"West Bengal", "constituencies":"42"},{"id":29,"name":"Andamon and Nicobar Islands", "constituencies":"1"},{"id":30,"name":"Chandigarh", "constituencies":"1"},{"id":31,"name":"Dadra and Nagar Haveli and Daman and Diu", "constituencies":"1"},
@@ -13,7 +15,7 @@ const constituencies=["North Mumbai","Mumbai North-East","Mumbai-North-Central",
 const states=["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala" ,"madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamilnadu","Telangana","Tripura","UttarPradesh","Uttarakhand","WestBengal","Andaman and NicobarIslands","chandigarh","Dadra and Nagar Haveli and Daman and Diu","Lakshadweeep","Delhi","puducherry","Ladakh"]
 const stateWiseDetails= [{id:1,name:"Andhra Pradesh", constituencies:25},{id:2,name:"Arunachal Pradesh", constituencies:2},{id:3,name:"Assam",constituencies:14},{id:4,name:"Bihar", "constituencies":"40"},{id:5,name:"Chattisgarh", "constituencies":"11"},{id:6,name:"Goa", "constituencies":"2"},{id:7,name:"Gujarat", "constituencies":"26"},{id:8,name:"Haryana", "constituencies":"10"},{id:9,name:"Himachal Pradesh", "constituencies":"4"},{id:10,name:"Jharkhand", "constituencies":"14"},{id:11,name:"Karanataka", "constituencies":"28"},{id:12,name:"Kerala", "constituencies":"20"},{id:13,name:"Madhya Pradesh", "constituencies":"29"},{id:14,name:"Maharashtra", "constituencies":"48"},{id:15,name:"Manipur", "constituencies":"2"},
 {id:16,name:"Meghalaya", "constituencies":"2"},{id:17,name:"Mizoram", "constituencies":"1"},{id:18,name:"Nagaland", "constituencies":"1"},{id:19,name:"Odisha", "constituencies":"21"},{id:20,name:"Punjab", "constituencies":"13"},{id:21,name:"Rajasthan", "constituencies":"25"},{id:22,name:"Sikkim", "constituencies":"1"},{id:23,name:"Tamilnadu", "constituencies":"39"},{id:24,name:"Telangana", "constituencies":"17"},{id:25,name:"Tripura", "constituencies":"2"},{id:26,name:"Uttar Pradesh", "constituencies":"80"},{id:27,name:"Uttarakhand", "constituencies":"5"},{id:28,name:"West Bengal", "constituencies":"42"},{id:29,name:"Andamon and Nicobar Islands", "constituencies":"1"},{id:30,"name":"Chandigarh", "constituencies":"1"},{id:31,name:"Dadra and Nagar Haveli and Daman and Diu", "constituencies":"1"},
-{id:32,name:"Lakshadweep", "constituencies":"1"},{id:"33",name:"Delhi", "constituencies":"7"},{id:4,name:"Puducherry", "constituencies":"1"}]
+{id:32,name:"Lakshadweep", "constituencies":"1"},{id:"33",name:"Delhi", "constituencies":"7"},{id:34,name:"Puducherry", "constituencies":"1"}]
 const data = [{"id":1,"de":[{"Amalapuram":"East Godavari"},
     {"Anakapalli":"Visakhapatnam"},
     {"Araku"	:"Srikakulam"},
@@ -545,6 +547,13 @@ const data = [{"id":1,"de":[{"Amalapuram":"East Godavari"},
     {"South Delhi":"	South Delhi district"},
     {"West Delhi":"West Delhi district"}]},
     {"id":34,"de":[{"Puducherry":"Entire union territory"}]}]
+const btnList=[
+    {"id":1,"name":"candidates"},
+    {"id":2,"name":"Go to user view"}
+]
+const overlayStyles={
+overflowY:"scroll"
+}
 
 function Admin(){
     const [isUserActive, setUserActive] = useState(false)
@@ -566,16 +575,19 @@ function Admin(){
     const [showStates,setShowStates]=useState(true)
     const [showSections,setSections] =useState(false)
     const [stateDetails,setStateDetails]=useState([])
-    const [Id,setId]=useState()
     const [showConstituencyDetails,setConstituencyDetails]=useState(false)
+    const [activeBtnId,setBtnId]=useState(1)
+    const [filteredConstituency,setFilteredConstituencies]=useState([])
     let counter = -1
-    const addCandidate = () => {
+    const addCandidate = Id => {
         setCandidate(!isAdd)
+        setBtnId(Id)
         setShowStates(!showStates)
         setList(!showList)
     }
-    const userSetter = () => {
+    const userSetter = id => {
         setUserActive({ isUserActive: !isUserActive })
+        setBtnId(id)
     }
     const listCandidates = () => {
         setList(!showList)
@@ -592,7 +604,6 @@ function Admin(){
     const getStateDetails = id => {
         const details = data.filter(item => item.id===id)
         setState(states[id-1])
-        setId(id)
         const {de}=details[0]
         setStateDetails(de)
         console.log(details)
@@ -604,6 +615,20 @@ function Admin(){
         setConstituencyDetails(true)
         setStateDetails([])
     }
+    const changeState = stateName => {
+        setState(stateName)
+        const constituencyid = stateWiseDetails.filter(item =>item.name===stateName)
+        const {id} =constituencyid[0]
+        const {de} = data[id-1]
+        setFilteredConstituencies([...de])
+        
+    }
+    const goBack = () => {
+        setConstituencyDetails(false)
+        setShowStates(true)
+        setState()
+        setconstituency()
+    }
     return (
         <ListContext.Consumer>
             {value => {
@@ -611,21 +636,19 @@ function Admin(){
                 const search=`${state}`
                 const getCandidates = () => {
                     setStateDetails([])
-                    const list = mpList.filter(item => item.summary.includes(search))
-                    if(list.length> 0){
-                    setFilteredList([...filteredList, list])
+                    setConstituencyDetails(true)
+                    const list = stateWiseDetails.filter(item => item.name===state)
+                    if(list.length>0){
+                    setFilteredList([data[list[0].id]])
                     setShowStates(false)
-                    setSections(true)
-                    setConstituencyDetails(false)
+                    setConstituencyDetails(true)
                     }
                     else{
                         setFilteredList([])
                         setSections(false)
                         setShowStates(true)
                     }
-                    setConstituencyDetails(false)
-                    setState("")
-                    setconstituency("")
+                
                 }
                 
                 const changeThisState = id => {}
@@ -639,18 +662,18 @@ function Admin(){
                             <button type="button" className='closeMenu' onClick={()=>toggleMenubar()}><GiHamburgerMenu /></button>
                             </div>
                             <div className='UpdatesContainer'>
-                                <button className={showList? 'listActiveBtn':'listInactiveBtn'} type="button" onClick={()=> listCandidates()}>Candidates</button>
-                                <button className='addBtn' type="button" onClick={() => addCandidate()}>Add Candidate</button>
-                                <button className='userBtn' type="button" onClick={() => userSetter()}>Go to User View</button>
+                        
+                                    <button className={activeBtnId=== 1 ? "selected": 'btn'}  onClick={()=>listCandidates(1)}>Candidates</button>
+                                    <button className={activeBtnId=== 2 ? "selected": 'btn'}  onClick={()=>userSetter(2)}>Go to user view</button>
                             </div>
                             </div>
-                            <div className={showList?'showList':'hideList'} >
+                            <div >
                                 <div className='headerContainer'>
                                 <button type="button" className={showmenu ? 'hideMenu': 'showMenu'} onClick={()=>toggleMenubar()}><GiHamburgerMenu /></button>
                                 <h1 className='highLighter'>LOK SABHA <br/>Candidates List</h1>
                                 <div className='selectors'>
                             <div className='input'>
-                                        <select value={state} id="stateName" onChange={e => setState(e.target.value)}>
+                                        <select value={state} id="stateName" onChange={e => changeState(e.target.value)}>
                                         <option selected="selected" disabled="disabled" id="stateHeader">Select State</option>
                                             {states.map(item => (
                                                 <option value={item}>{item}</option>
@@ -659,21 +682,86 @@ function Admin(){
                                     </div>
                                     <div className='input'>
                                     
-                                        <select id="constituencyName" onChange={e => setconstituency(e.target.value)}>
+                                        <select value={constituency} id="constituencyName" onChange={e => setconstituency(e.target.value)}>
                                         <option selected="selected" disabled="disabled" id="constituencyHeader">Select Constituency</option>
-                                            {constituencies.map(item => (
-                                            <option value={constituency}>{item}</option>
+                                            {filteredConstituency.map(item => (
+                                            <option value={Object.keys(item)}>{Object.keys(item)}</option>
                                             ))}
                                         </select>
                                     </div>
                                     <button  className='goBtn' type="button" onClick={e=> getCandidates(e)}>Go </button>
+                                    
+                                    <Popup  modal trigger={<button className='btn' onClick={()=>addCandidate(3)}>Add</button>} position="center"   overlayStyle={overlayStyles}>
+                                <form className='addFormContainer' onSubmit={() => onAddCandidate({ key, name, party, wiki, about, youtube, X, symbol, image })}>
+                                <h1 className='clicker'>Add Candidate</h1>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Select State</label>
+                                        <select value={state} id="formState" onChange={e => setState(e.target.value)}>
+                                            {states.map(item => (
+                                                <option value={item}>{item}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='formConst' className='selection'>select constituency</label>
+                                        <select value={constituency} id="formConst" onChange={e => setconstituency(e.target.value)}>
+                                            <option value="North Mumbai">North Mumbai</option>
+                                            <option value="Maharastra">Maharashtra</option>
+                                            <option value="Mumbai North-East">Mumbai North-East</option>
+                                            <option value="Mumbai North-central">Mumbai North-central</option>
+                                            <option value="Mumbai North-west">Mumbai North West</option>
+                                            <option value="Mumbai South-central">Mumbai South-central</option>
+                                            <option value="Mumbai South">Mumbai South</option>
+                                        </select>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='name' className='name'>Candidate Name</label>
+                                        <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} placeholder='Enter Candidate Name' />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='photo' className='photo'>Upload Photo</label>
+                                        <input type="file" id="photo" value={image} placeholder='upload Image' onClick={e => setimage(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='party' className='party'>Party</label>
+                                        <input type="text" id="party" placeholder='Enter Party Name' value={party} onChange={e => setparty(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='wikilink' className='link'>Enter Wiki Link</label>
+                                        <input type="text" id="wikilink" placeholder='Enter Wiki Link' value={wiki} onChange={e => setwiki(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='Partylink' className='link'>Logo Link</label>
+                                        <input type="text" id="partylink" placeholder='Enter Party Link' value={symbol} onChange={e => setsymbol(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='summary' className='summary'>About</label>
+                                        <input type="text" id="summary" placeholder='Give Summary of Candidate' value={about} onChange={e => setAbout(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='youtube' className='link'>Enter Youtube Link</label>
+                                        <input type="text" id="youtube" placeholder='Enter Youtube Link' value={youtube} onChange={e => setTube(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='instagram' className='link'>Enter Instagram Link</label>
+                                        <input type="text" id="instagram" placeholder='Enter Instagram Link' value={instagram} onChange={e => setinsta(e.target.value)} />
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor='x' className='link'>Enter X Link</label>
+                                        <input type="text" id="X" placeholder='Enter X Link' value={X} onChange={e => setX(e.target.value)} />
+                                    </div>
+                                    <button className='addCanBtn' type="submit" onClick={() => onAddCandidate({ key, name, party, wiki, about, youtube, X, symbol, image })}>Add</button>
+                                </form>
+                            </Popup>
                                     < br/>
                                     {/* <button onClick={()=>showStatesList()} type="button" className='showstatebtn'>States</button> */}
-                                    <p><span className='spanner'>State:</span> {state}<br/> <span className='spanner'>Constituency:</span> {constituency}</p>
+                                    <div className='itemsList'>
+                                        
+                                        <span className='spanner'>State:</span> {state}<br/> <span className='spanner'>Constituency:</span> {constituency}</div>
                                     </div>
                                     </div>
                                     <div className={showStates ? 'showStates': 'hideStates'}>
-                                        <p className='clicker'>Click on State to view candidates</p>
+                                    
                                         <table className='sectionStates'>
                                             <tbody>
                                             <tr>
@@ -692,7 +780,7 @@ function Admin(){
                                     </table>
                                     </div>
                                     <div className={stateDetails.length>0 ? 'showStateDetails':'hideStateDetails'}>
-                                        <button className='backBtn' type="button" onClick={()=>getCandidates()}><FaArrowLeftLong className='arrow'/>Back</button>
+                                        <button className='backBtn' type="button" onClick={()=>goBack()}><FaArrowLeftLong className='arrow'/>Back</button>
                                         <table className='stateDetails'>      
                                             <tbody>
                                                 <tr>
@@ -715,7 +803,7 @@ function Admin(){
                                         </table>
                                     </div>
                                     <div className={showConstituencyDetails ? 'showConstituency':'hideConstituency'}>
-                                    <button className='backBtn' type="button" onClick={()=>getCandidates()}><FaArrowLeftLong className='arrow'/>Back</button>
+                                    <button className='backBtn' type="button" onClick={()=>goBack()}><FaArrowLeftLong className='arrow'/>Back</button>
                                         <div className='constList'>
                                             <h3>State:<span className='namer'>{state}</span></h3>
                                             <h3>Constituency:<span className='namer'>{constituency}</span></h3>
@@ -765,7 +853,7 @@ function Admin(){
                                         </table>
                                         </div>
                                         </div>
-                                    <div className={showSections ? 'sections':'hideStates'}>
+                                    {/* <div className={showSections ? 'sections':'hideStates'}>
                                         <div className='section'>Member</div>
                                         <div className='section'>Party</div>
                                         <div className='section1'>Votes</div>
@@ -786,73 +874,9 @@ function Admin(){
                                     ))}
                                 
                                 </div>
-            }
+            } */}
                                 
                                 </div>
-                            <div className={isAdd ? 'showForm' : 'hideForm'}>
-                                <form className='addFormContainer' onSubmit={() => onAddCandidate({ key, name, party, wiki, about, youtube, X, symbol, image })}>
-                                    <h1 className='addHeading'>
-                                        Add Candidate Details
-                                    </h1>
-                                    <div className='input'>
-                                        <label htmlFor="states" className='selection'>Select State</label>
-                                        <select value={state} id="state" onChange={e => setState(e.target.value)}>
-                                            {states.map(item => (
-                                                <option value={item}>{item}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='constituency' className='selection'>select constituency</label>
-                                        <select value={constituency} id="constituency" onChange={e => setconstituency(e.target.value)}>
-                                            <option value="North Mumbai">North Mumbai</option>
-                                            <option value="Maharastra">Maharashtra</option>
-                                            <option value="Mumbai North-East">Mumbai North-East</option>
-                                            <option value="Mumbai North-central">Mumbai North-central</option>
-                                            <option value="Mumbai North-west">Mumbai North West</option>
-                                            <option value="Mumbai South-central">Mumbai South-central</option>
-                                            <option value="Mumbai South">Mumbai South</option>
-                                        </select>
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='name' className='name'>Candidate Name</label>
-                                        <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} placeholder='Enter Candidate Name' />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='photo' className='photo'>Upload Photo</label>
-                                        <input type="file" id="photo" value={image} placeholder='upload Image' onClick={e => setimage(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='party' className='party'>Party</label>
-                                        <input type="text" id="party" placeholder='Enter Party Name' value={party} onChange={e => setparty(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='wikilink' className='link'>Enter Wiki Link</label>
-                                        <input type="text" id="wikilink" placeholder='Enter Wiki Link' value={wiki} onChange={e => setwiki(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='Partylink' className='link'>Logo Link</label>
-                                        <input type="text" id="partylink" placeholder='Enter Party Link' value={symbol} onChange={e => setsymbol(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='summary' className='summary'>About</label>
-                                        <input type="text" id="summary" placeholder='Give Summary of Candidate' value={about} onChange={e => setAbout(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='youtube' className='link'>Enter Youtube Link</label>
-                                        <input type="text" id="youtube" placeholder='Enter Youtube Link' value={youtube} onChange={e => setTube(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='instagram' className='link'>Enter Instagram Link</label>
-                                        <input type="text" id="instagram" placeholder='Enter Instagram Link' value={instagram} onChange={e => setinsta(e.target.value)} />
-                                    </div>
-                                    <div className='input'>
-                                        <label htmlFor='x' className='link'>Enter X Link</label>
-                                        <input type="text" id="X" placeholder='Enter X Link' value={X} onChange={e => setX(e.target.value)} />
-                                    </div>
-                                    <button className='addCanBtn' type="submit" onClick={() => onAddCandidate({ key, name, party, wiki, about, youtube, X, symbol, image })}>Add</button>
-                                </form>
-                            </div>
                         </div>}
                     </div>
                 )
