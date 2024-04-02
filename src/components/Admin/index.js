@@ -788,7 +788,8 @@ function Admin(){
                                                <th>Constituency</th>
                                                 <th>Total Voters</th>
                                                 <th>Last Election Winner Party</th>
-                                                <th>Edit/Add</th>
+                                                <th><button className='editBtn'>Edit</button>
+                                                <button className='deleteBtn'>Delete</button></th>
                                                 </tr>
                                                 {stateDetails.length>0 && stateDetails.map(item => (
                                                     <tr>
@@ -796,7 +797,8 @@ function Admin(){
                                                         <td><button className='candidateBtn' onClick={()=>getConstituencyDetails(Object.keys(item))}>{Object.keys(item)}</button></td>
                                                         <td>2000</td>
                                                         <td>YSRCP</td>
-                                                        <td><button onClick={changeThisState(item.id)} key={item.id}>Edit/Add</button></td>
+                                                        <td><button className='editBtn'>Edit</button>
+                                                <button className='deleteBtn'>Delete</button></td>
                                                     </tr>
                                                 ))}
                                             </tbody>
@@ -832,7 +834,8 @@ function Admin(){
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
+                                                    <td><button className='editBtn'>Edit</button>
+                                                <button className='deleteBtn'>Delete</button></td>
                                                     
                                                 </tr>
                                                 <tr>
