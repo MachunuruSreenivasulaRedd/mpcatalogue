@@ -552,7 +552,8 @@ const btnList=[
     {"id":2,"name":"Go to user view"}
 ]
 const overlayStyles={
-overflowY:"scroll"
+overflowY:"auto",
+borderRadius:"10px",
 }
 
 function Admin(){
@@ -571,6 +572,7 @@ function Admin(){
     const [instagram, setinsta] = useState("")
     const [showList,setList]= useState(true)
     const [filteredList,setFilteredList]=useState([])
+    const [editState,setEditState]=useState()
     const [showmenu,setMenu]=useState(true)
     const [showStates,setShowStates]=useState(true)
     const [showSections,setSections] =useState(false)
@@ -767,13 +769,40 @@ function Admin(){
                                             <tr>
                                             <th>State/Union Territory</th>
                                             <th className='noconstituencies'>Number of Constituencies</th>
+                                            <th>Edit/Delete</th>
                                             </tr>
                                     {stateConstituency.map(item => (
                                         
                                             <tr>
-                                            <td ><button onClick={()=>getStateDetails(item.id)} key={item.id}>{item.name}</button></td>
+                                            <td ><button onClick={()=>getStateDetails(item.id)} key={item.id} className='stateColumn'>{item.name}</button></td>
                                             <td ><button onClick={()=>getStateDetails(item.id)} key={item.id}>{item.constituencies}</button></td>
+                                            <td><Popup  modal overlayStyle={overlayStyles} trigger={<button className='editBtn'>Edit</button>}>
+                                                <form className='editFormContainer'>
+                                                <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit State</label>
+                                        <input type='text' value={item.name} id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Constituency</label>
+                                        <input type='text' value={item.constituencies} id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <button className='saveBtn' type='button'>Save Changes</button>
+                                    <button className='cancelBtn' type="button">Cancel</button>
+                                                </form>
+                                            </Popup>
+                                            <Popup  modal overlayStyle={overlayStyles} trigger={<button className='deleteBtn'>Delete</button>}>
+                                                <form className='editFormContainer'>
+                                                    
+                                                    <div className='delPopup'>
+                                                    <p>Do you want to delete this row?</p>
+                                                <button className='delBtn' type="button">Confirm</button>
+                                                <button className='delCancel' type="button">Cancel</button>
+                                                </div>
+                                                </form>
+                                            </Popup>
+                                                </td>
                                             </tr>
+                                            
                                 
                                     ))}
                                     </tbody>
@@ -788,8 +817,7 @@ function Admin(){
                                                <th>Constituency</th>
                                                 <th>Total Voters</th>
                                                 <th>Last Election Winner Party</th>
-                                                <th><button className='editBtn'>Edit</button>
-                                                <button className='deleteBtn'>Delete</button></th>
+                                                <th>Edit/Delete</th>
                                                 </tr>
                                                 {stateDetails.length>0 && stateDetails.map(item => (
                                                     <tr>
@@ -828,7 +856,7 @@ function Admin(){
                                                     <td>YSRCP</td>
                                                     <td><img src="https://www.ysrcongress.com/sites/default/files/article_images/2013/12/19/fan.jpg" alt="ysrcp logo" className='partyLogo'/></td>
                                                     <td>Pinipe Viswarup</td>
-                                                    <td>Pinipe Viswarup, (born on 2 October 1962) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet. He worked for the welfare and development of Mummidivaram</td>
+                                                    <td>Pinipe Viswarup, (born on 2 October 1962) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet.</td>
                                                     <td><a href="https://en.wikipedia.org/wiki/Pinipe_Viswarup" target="_blank" rel='noopener'>click here</a></td>
                                                     <td></td>
                                                     <td></td>
@@ -842,14 +870,14 @@ function Admin(){
                                                     <td>TDP</td>
                                                     <td><img src="https://res.cloudinary.com/dollmqugm/image/upload/v1711944349/tdp_vqvnot.png" alt="ysrcp logo" className='partyLogo'/></td>
                                                     <td>Aithabathula Anandarao</td>
-                                                    <td>Aithabathula Anandarao (born on 9 October 1965) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet. He worked for the welfare and development of Mummidivaram.
-</td>
+                                                    <td>Aithabathula Anandarao (born on 9 October 1965) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet.</td>
                                                     <td><a href="https://myneta.info/andhra2014/candidate.php?candidate_id=3101" target="_blank" rel='noopener'>click here</a></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
+                                                    <td><button className='editBtn'>Edit</button>
+                                                <button className='deleteBtn'>Delete</button></td>
                                                     
                                                 </tr>
                                             </tbody>
