@@ -792,7 +792,7 @@ function Admin(){
                                             </Popup>
                                             <Popup  modal overlayStyle={overlayStyles} trigger={<button className='deleteBtn'>Delete</button>}>
                                                 <form className='editFormContainer'>
-                                                    
+                
                                                     <div className='delPopup'>
                                                     <p>Do you want to delete this row?</p>
                                                 <button className='delBtn' type="button">Confirm</button>
@@ -805,6 +805,10 @@ function Admin(){
                                             
                                 
                                     ))}
+                                    <tr><td>Total Constituencies</td>
+                                    <td>536</td>
+                                    <td></td>
+                                    </tr>
                                     </tbody>
                                     </table>
                                     </div>
@@ -825,10 +829,41 @@ function Admin(){
                                                         <td><button className='candidateBtn' onClick={()=>getConstituencyDetails(Object.keys(item))}>{Object.keys(item)}</button></td>
                                                         <td>2000</td>
                                                         <td>YSRCP</td>
-                                                        <td><button className='editBtn'>Edit</button>
-                                                <button className='deleteBtn'>Delete</button></td>
+                                                        <td><Popup  modal overlayStyle={overlayStyles} trigger={<button className='editBtn'>Edit</button>}>
+                                                <form className='editFormContainer'>
+                                                <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit State</label>
+                                        <input type='text' value={item.name} id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Constituency</label>
+                                        <input type='text' value={constituency} id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Total Voters</label>
+                                        <input type='text' value="2000" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Last Winner Party</label>
+                                        <input type='text' value="YSRCP" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <button className='saveBtn' type='button'>Save Changes</button>
+                                    <button className='cancelBtn' type="button">Cancel</button>
+                                                </form>
+                                            </Popup>
+                                            <Popup  modal overlayStyle={overlayStyles} trigger={<button className='deleteBtn'>Delete</button>}>
+                                                <form className='editFormContainer'>
+                
+                                                    <div className='delPopup'>
+                                                    <p>Do you want to delete this row?</p>
+                                                <button className='delBtn' type="button">Confirm</button>
+                                                <button className='delCancel' type="button">Cancel</button>
+                                                </div>
+                                                </form>
+                                            </Popup></td>
                                                     </tr>
                                                 ))}
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -862,8 +897,58 @@ function Admin(){
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td><button className='editBtn'>Edit</button>
-                                                <button className='deleteBtn'>Delete</button></td>
+                                                    <td><Popup  modal overlayStyle={overlayStyles} trigger={<button className='editBtn'>Edit</button>}>
+                                                <form className='editFormContainer'>
+                                                <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit State</label>
+                                        <input type='text' value="YSRCP" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Party Logo</label>
+                                        <input type='text' value="https://www.ysrcongress.com/sites/default/files/article_images/2013/12/19/fan.jpg" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Candidate Name</label>
+                                        <input type='text' value="Pinipe vishwarup" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Candidate Details</label>
+                                        <input type='text' value="Pinipe Viswarup, (born on 2 October 1962) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet." id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Wiki Link</label>
+                                        <input type='text' value="https://en.wikipedia.org/wiki/Pinipe_Viswarup" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Youtube Link</label>
+                                        <input type='text' value="https://en.wikipedia.org/wiki/Pinipe_Viswarup" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Facebook Link</label>
+                                        <input type='text' value="https://en.wikipedia.org/wiki/Pinipe_Viswarup" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Instagram Link</label>
+                                        <input type='text' value="https://en.wikipedia.org/wiki/Pinipe_Viswarup" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit X Link</label>
+                                        <input type='text' value="https://en.wikipedia.org/wiki/Pinipe_Viswarup" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <button className='saveBtn' type='button'>Save Changes</button>
+                                    <button className='cancelBtn' type="button">Cancel</button>
+                                                </form>
+                                            </Popup>
+                                                    <Popup  modal overlayStyle={overlayStyles} trigger={<button className='deleteBtn'>Delete</button>}>
+                                                <form className='editFormContainer'>
+                
+                                                    <div className='delPopup'>
+                                                    <p>Do you want to delete this row?</p>
+                                                <button className='delBtn' type="button">Confirm</button>
+                                                <button className='delCancel' type="button">Cancel</button>
+                                                </div>
+                                                </form>
+                                            </Popup></td>
                                                     
                                                 </tr>
                                                 <tr>
@@ -876,8 +961,30 @@ function Admin(){
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td><button className='editBtn'>Edit</button>
-                                                <button className='deleteBtn'>Delete</button></td>
+                                                    <td><Popup  modal overlayStyle={overlayStyles} trigger={<button className='editBtn'>Edit</button>}>
+                                                <form className='editFormContainer'>
+                                                <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit State</label>
+                                        <input type='text' value="TDP" id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <div className='input'>
+                                        <label htmlFor="formState" className='selection'>Edit Constituency</label>
+                                        <input type='text' value={constituency} id="formstate" onChange={e=>setEditState(e.target.value)}/>
+                                    </div>
+                                    <button className='saveBtn' type='button'>Save Changes</button>
+                                    <button className='cancelBtn' type="button">Cancel</button>
+                                                </form>
+                                            </Popup>
+                                                    <Popup  modal overlayStyle={overlayStyles} trigger={<button className='deleteBtn'>Delete</button>}>
+                                                <form className='editFormContainer'>
+                
+                                                    <div className='delPopup'>
+                                                    <p>Do you want to delete this row?</p>
+                                                <button className='delBtn' type="button">Confirm</button>
+                                                <button className='delCancel' type="button">Cancel</button>
+                                                </div>
+                                                </form>
+                                            </Popup></td>
                                                     
                                                 </tr>
                                             </tbody>
