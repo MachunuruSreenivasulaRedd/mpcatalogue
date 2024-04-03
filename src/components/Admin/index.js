@@ -630,6 +630,7 @@ function Admin(){
         setShowStates(true)
         setState()
         setconstituency()
+        setStateDetails([])
     }
     return (
         <ListContext.Consumer>
@@ -863,7 +864,12 @@ function Admin(){
                                             </Popup></td>
                                                     </tr>
                                                 ))}
-                                               
+                                                <tr><td>Total Constituencies</td>
+                                    <td>{stateDetails.length}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    </tr>
                                             </tbody>
                                         </table>
                                     </div>
