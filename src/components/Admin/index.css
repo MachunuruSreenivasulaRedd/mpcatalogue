@@ -9,7 +9,7 @@
     flex-direction: row;
 }
 .adminContainer{
-    background-color: #e7e7e7;
+    background-color: white;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -17,6 +17,53 @@
 .editFormContainer{
 padding-left: 20px;
     
+}
+.statsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.firstCard{
+    margin:15px;
+    background-color: #008CBA;
+    border-radius: 8px;
+    width:180px;
+    color:white;
+    text-align: center;
+    height:110px;
+    font-weight: 500;
+}
+.tot{
+    text-align: center;
+}
+
+.secondCard{
+    margin:15px;
+    background-color: green;
+    border-radius: 8px;
+    width:180px;
+    color:white;
+    text-align: center;
+    height:110px;
+    font-weight: 500;
+}
+.stats{
+    display: flex;
+    flex-direction: row;
+}
+.thirdCard{
+    margin:15px;
+    background-color: #555555;
+    border-radius: 8px;
+    width:180px;
+    color:white;
+    text-align: center;
+    height:110px;
+    font-weight: 500;
+}
+.highlight{
+    color: gold;
+    font-size: 18px;
 }
 
 .menuContainer{
@@ -311,7 +358,7 @@ font-weight: 500;
 .showStates{
     display: block;
     margin:20px;
-    background-color: #e7e7e7;
+    background-color: white;
     border-radius: 8px;
     padding: 20px;
     width:fit-content;
@@ -378,12 +425,13 @@ table {
     height: 30px;
     font-size: 18px;
     width:120px;
+
   }
   th{
     width:150px;
   }
   .constList{
-    background-color: #e7e7e7;
+    background-color: white;
     padding:5px;
   }
   .namer{
@@ -399,7 +447,7 @@ table {
     display: block;
     overflow-x: scroll;
     max-width:80vw;
-    background-color: #e7e7e7;
+    background-color: white;
   }
   .hideConstituency{
     display: none;
@@ -438,10 +486,11 @@ table {
     display: none;
 }
 .showStateDetails{
-    background-color: #e7e7e7;
+    background-color: white;
     width:auto;
     padding: 20px;
     margin:15px;
+    margin-top: 0px;
 }
 .stateDetails{
     background-color: transparent;

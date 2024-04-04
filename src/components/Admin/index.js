@@ -771,6 +771,22 @@ function Admin(){
                                     </div>
                                     </div>
                                     <div className={showStates ? 'showStates': 'hideStates'}>
+                                        <div className='statsContainer'>
+                                            <div className='firstCard'>
+                                                <h3>Total States</h3>
+                                                <p className='highlight'>28</p>
+                                            </div>
+                                            <div className='secondCard'>
+                                            <h3>Total UT's</h3>
+                                                <p className='highlight'>6</p>
+                                            </div>
+                                            
+                                            <div className='thirdCard'>
+                                            <h3>Total states and UT</h3>
+                                                <p className='highlight'>34</p>
+                                            </div>
+                                            </div>
+                                
                                     
                                         <table className='sectionStates'>
                                             <tbody>
@@ -822,7 +838,7 @@ function Admin(){
                                 
                                     ))}
                                     <tr><td>Total Constituencies</td>
-                                    <td>536</td>
+                                    <td className='tot'>536</td>
                                     <td></td>
                                     </tr>
                                     </tbody>
@@ -830,6 +846,16 @@ function Admin(){
                                     </div>
                                     <div className={stateDetails.length>0 ? 'showStateDetails':'hideStateDetails'}>
                                         <button className='backBtn' type="button" onClick={()=>goBack()}><FaArrowLeftLong className='arrow'/>Back</button>
+                                        <div className='stats'>
+                                        <div className='firstCard'>
+                                                <h4>constituencies in {state}</h4>
+                                                <p className='highlight'>{stateDetails.length}</p>
+                                            </div>
+                                            <div className='secondCard'>
+                                                <h4>Voters in {state}</h4>
+                                                <p className='highlight'>2000</p>
+                                            </div>
+                                            </div>
                                         <table className='stateDetails'>      
                                             <tbody>
                                                 <tr>
@@ -886,7 +912,7 @@ function Admin(){
                                                     </tr>
                                                 ))}
                                                 <tr><td>Total Constituencies</td>
-                                    <td>{stateDetails.length}</td>
+                                    <td className='tot'>{stateDetails.length}</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
