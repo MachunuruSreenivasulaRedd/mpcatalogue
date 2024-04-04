@@ -4,7 +4,10 @@
     border-radius: 8px;
     margin-top:20px
 }
-.editBtn{}
+.buttons{
+    display: flex;
+    flex-direction: row;
+}
 .adminContainer{
     background-color: #e7e7e7;
     height: 100%;
@@ -12,8 +15,10 @@
     flex-direction: row;
 }
 .editFormContainer{
-    background-color: ;
+
+    
 }
+
 .menuContainer{
     display: flex;
     flex-direction: column;
@@ -106,7 +111,7 @@ margin:10px;
     font-size: 16px;
     letter-spacing: 0.6px;
 }
-.editBtn,.saveBtn{
+.saveBtn{
     background-color: #008CBA;
     border:none;
     color:white;
@@ -114,9 +119,27 @@ margin:10px;
     padding: 3px;
     width:100px;
     height:25px;
+    float:right;
 }
-
-.deleteBtn,.cancelBtn{
+.editBtn{
+    background-color: #008CBA;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 3px;
+    width:46px;
+    height:25px;   
+}
+.deleteBtn{
+    background-color:#f44336;
+    border:none;
+    color:white;
+    border-radius: 8px;
+    padding: 2px;
+    height:25px;
+    width:46px;
+}
+.cancelBtn{
     background-color:#f44336;
     border:none;
     color:white;
@@ -124,6 +147,7 @@ margin:10px;
     padding: 2px;
     height:25px;
     width:100px;
+    float:right;
 }
 .stateColumn{
     display: flex;
@@ -204,6 +228,10 @@ overflow: scroll;
 .hideForm{
     display: none;
 }
+.addcancelBtn{
+    float:right;
+    margin-left: 400px;
+}
 .delPopup{
     height:200px;
     display: flex;
@@ -238,6 +266,7 @@ overflow: scroll;
 .input{
     display: flex;
     flex-direction: column;
+    margin-left:20px;
 }
 input{
     border:none;
