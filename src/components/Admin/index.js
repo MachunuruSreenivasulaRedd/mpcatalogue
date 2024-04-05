@@ -594,9 +594,10 @@ function Admin(){
         setUserActive({ isUserActive: !isUserActive })
         setBtnId(id)
     }
-    const listCandidates = () => {
+    const listCandidates = id => {
         setList(!showList)
-        setShowStates(!showStates)
+        setBtnId(id)
+        setShowStates(true)
         setCandidate(false)
     }
     const toggleMenubar = () => {
@@ -664,7 +665,7 @@ function Admin(){
                         {isUserActive ? <Navigate to="/mplist" /> : <div className='adminContainer'>
                             <div className={showmenu ? 'menuContainer':'hideMenuContainer'}>
                                 <div className='navHeader'>
-                            <h1 className='salutation'>BharatPol</h1>
+                            <button className='salutation' onClick={()=>goBack()}>BharatPol</button>
                             <button type="button" className='closeMenu' onClick={()=>toggleMenubar()}><GiHamburgerMenu /></button>
                             </div>
                             <div className='UpdatesContainer'>
@@ -704,7 +705,7 @@ function Admin(){
                                 <button className='addcancelBtn' type="button" onClick={()=>close()}>Cancel</button>
                                     <div className='input'>
                                         <label htmlFor="formState" className='selection'>Select State</label>
-                                        <select value={state} id="formState" onChange={e => setState(e.target.value)}>
+                                        <select value={state} id="formState" onChange={e => changeState(e.target.value)}>
                                             {states.map(item => (
                                                 <option value={item}>{item}</option>
                                             ))}
@@ -713,13 +714,10 @@ function Admin(){
                                     <div className='input'>
                                         <label htmlFor='formConst' className='selection'>select constituency</label>
                                         <select value={constituency} id="formConst" onChange={e => setconstituency(e.target.value)}>
-                                            <option value="North Mumbai">North Mumbai</option>
-                                            <option value="Maharastra">Maharashtra</option>
-                                            <option value="Mumbai North-East">Mumbai North-East</option>
-                                            <option value="Mumbai North-central">Mumbai North-central</option>
-                                            <option value="Mumbai North-west">Mumbai North West</option>
-                                            <option value="Mumbai South-central">Mumbai South-central</option>
-                                            <option value="Mumbai South">Mumbai South</option>
+                                        <option selected="selected" disabled="disabled" id="constituencyHeader">Select Constituency</option>
+                                            {filteredConstituency.map(item => (
+                                            <option value={Object.keys(item)}>{Object.keys(item)}</option>
+                                            ))}
                                         </select>
                                     </div>
                                     <div className='input'>
