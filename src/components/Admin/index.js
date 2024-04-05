@@ -771,17 +771,17 @@ function Admin(){
                                     <div className={showStates ? 'showStates': 'hideStates'}>
                                         <div className='statsContainer'>
                                             <div className='firstCard'>
-                                                <h3>Total States</h3>
-                                                <p className='highlight'>28</p>
+                                                <h2>28</h2>
+                                                <p className='highlight'>Total States</p>
                                             </div>
                                             <div className='secondCard'>
-                                            <h3>Total UT's</h3>
-                                                <p className='highlight'>6</p>
+                                            <h2>6</h2>
+                                                <p className='highlight'>Total UT's</p>
                                             </div>
                                             
                                             <div className='thirdCard'>
-                                            <h3>Total states and UT</h3>
-                                                <p className='highlight'>34</p>
+                                            <h2>34</h2>
+                                                <p className='highlight'>Total states and UT</p>
                                             </div>
                                             </div>
                                 
@@ -821,7 +821,7 @@ function Admin(){
                                                 <form className='editFormContainer'>
                 
                                                     <div className='delPopup'>
-                                                    <p>Do you want to delete this row?</p>
+                                                    <h3>Are you sure to delete?</h3>
                                                     <div className='buttons'>
                                                 <button className='delBtn' type="button">Confirm</button>
                                                 <button className='delCancel' type="button" onClick={()=>close()}>Cancel</button>
@@ -836,7 +836,7 @@ function Admin(){
                                 
                                     ))}
                                     <tr><td>Total Constituencies</td>
-                                    <td className='tot'>536</td>
+                                    <td className='tot'>543</td>
                                     <td></td>
                                     </tr>
                                     </tbody>
@@ -846,12 +846,13 @@ function Admin(){
                                         <button className='backBtn' type="button" onClick={()=>goBack()}><FaArrowLeftLong className='arrow'/>Back</button>
                                         <div className='stats'>
                                         <div className='firstCard'>
-                                                <h4>constituencies in {state}</h4>
-                                                <p className='highlight'>{stateDetails.length}</p>
+                                                
+                                                <h2 className='highlight'>{stateDetails.length}</h2>
+                                                <p>constituencies in {state}</p>
                                             </div>
                                             <div className='secondCard'>
-                                                <h4>Voters in {state}</h4>
-                                                <p className='highlight'>2000</p>
+                                                <h2 className='highlight'>2000</h2>
+                                                <p>Voters in {state}</p>
                                             </div>
                                             </div>
                                         <table className='stateDetails'>      
@@ -900,7 +901,7 @@ function Admin(){
                                                 <form className='editFormContainer'>
                 
                                                     <div className='delPopup'>
-                                                    <p>Do you want to delete this row?</p>
+                                                    <p>Are you sure to delete?</p>
                                                 <button className='delBtn' type="button">Confirm</button>
                                                 <button className='delCancel' type="button" onClick={()=>close()}>Cancel</button>
                                                 </div>
@@ -930,7 +931,7 @@ function Admin(){
                                                     <th>Party Name</th>
                                                     <th>Party Logo</th>
                                                     <th>Candidate Name</th>
-                                                    <th>Candidate Details</th>
+                                                   
                                                     <th>Wiki Link</th>
                                                     <th>Youtube Link</th>
                                                     <th>Facebook Link</th>
@@ -942,7 +943,7 @@ function Admin(){
                                                     <td>YSRCP</td>
                                                     <td><img src="https://www.ysrcongress.com/sites/default/files/article_images/2013/12/19/fan.jpg" alt="ysrcp logo" className='partyLogo'/></td>
                                                     <td>Pinipe Viswarup</td>
-                                                    <td>Pinipe Viswarup, (born on 2 October 1962) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet.</td>
+                                            
                                                     <td><a href="https://en.wikipedia.org/wiki/Pinipe_Viswarup" target="_blank" rel='noopener'>click here</a></td>
                                                     <td></td>
                                                     <td></td>
@@ -1000,7 +1001,7 @@ function Admin(){
                                                 <form className='editFormContainer'>
                 
                                                     <div className='delPopup'>
-                                                    <p>Do you want to delete this row?</p>
+                                                    <h3>Are you sure to delete?</h3>
                                                 <button className='delBtn' type="button">Confirm</button>
                                                 <button className='delCancel' type="button" onClick={()=>close()}>Cancel</button>
                                                 </div>
@@ -1013,7 +1014,7 @@ function Admin(){
                                                     <td>TDP</td>
                                                     <td><img src="https://res.cloudinary.com/dollmqugm/image/upload/v1711944349/tdp_vqvnot.png" alt="ysrcp logo" className='partyLogo'/></td>
                                                     <td>Aithabathula Anandarao</td>
-                                                    <td>Aithabathula Anandarao (born on 9 October 1965) is an Indian politician who has worked as Rural Water Supply Minister in YS Rajasekhara Reddy’s cabinet and continued in the same position during Rosaiah’s cabinet.</td>
+                                            
                                                     <td><a href="https://myneta.info/andhra2014/candidate.php?candidate_id=3101" target="_blank" rel='noopener'>click here</a></td>
                                                     <td></td>
                                                     <td></td>
@@ -1042,7 +1043,7 @@ function Admin(){
                                                 <form className='editFormContainer'>
                 
                                                     <div className='delPopup'>
-                                                    <p>Do you want to delete this row?</p>
+                                                    <h3>Are you sure to delete?</h3>
                                                 <button className='delBtn' type="button">Confirm</button>
                                                 <button className='delCancel' type="button" onClick={()=>close()}>Cancel</button>
                                                 </div>
