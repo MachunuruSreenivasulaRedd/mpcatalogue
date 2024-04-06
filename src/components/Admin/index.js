@@ -771,16 +771,16 @@ function Admin(){
                                     <div className={showStates ? 'showStates': 'hideStates'}>
                                         <div className='statsContainer'>
                                             <div className='firstCard'>
-                                                <h2>28</h2>
+                                                <h1>28</h1>
                                                 <p className='highlight'>Total States</p>
                                             </div>
                                             <div className='secondCard'>
-                                            <h2>6</h2>
+                                            <h1>6</h1>
                                                 <p className='highlight'>Total UT's</p>
                                             </div>
                                             
                                             <div className='thirdCard'>
-                                            <h2>34</h2>
+                                            <h1>34</h1>
                                                 <p className='highlight'>Total states and UT</p>
                                             </div>
                                             </div>
