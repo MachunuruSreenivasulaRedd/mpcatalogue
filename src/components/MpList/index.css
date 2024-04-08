@@ -131,6 +131,10 @@ h1{
 .filterIcon{
     display: none;
 }
+.locationFilter{
+    font-size: 20px;
+    padding: 5px;
+}
 }
 .locationFilter{
     color:black;
@@ -141,7 +145,7 @@ h1{
     margin-top:-10px;
     
     background-color: #e7e7e7;
-    font-size:20px;
+    font-size:16px;
     
 }
 .showSal{
