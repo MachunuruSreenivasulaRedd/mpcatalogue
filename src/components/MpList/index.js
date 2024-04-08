@@ -34,6 +34,7 @@ const MpList = props => {
         if(constituency){
         setShowCandidates(true)
     }
+    
 }
    
     return(
@@ -67,6 +68,7 @@ const MpList = props => {
                                     <button className="gobtn" onClick={()=>getCandidates()}>Go</button>
                                     </div>
                 <Popup overlayStyles={overlayStyle} trigger={<button type="button" className="filterIcon"><BsFillFilterCircleFill/></button>} position="bottom" >
+              
                 <div className='input1'>
                                         <label htmlFor="states" className='selection'>State</label>
                                         <select value={state} id="state1" onChange={e => changeState(e.target.value)}>
@@ -86,7 +88,9 @@ const MpList = props => {
                                         </select>
                                     </div>
                                     <button className="gobtn" onClick={()=>getCandidates()}>Go</button>
+                            
                                     </Popup>
+                                       
             </div>
             
             {/* <button type="button" className="getStateBtn" onClick={()=>setShowStates(!showStates)}>States details</button> */}

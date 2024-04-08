@@ -70,12 +70,13 @@ h1{
     width:160px;
     height: 30px;
     font-size: 12px;
-    
+    border-radius: 8px;
 }
 #constituency1{
     width:160px;
     height: 30px;
     font-size: 12px;
+    border-radius: 8px;
 }
 #state,#constituency{
     font-size: 14px;
@@ -125,7 +126,8 @@ h1{
    padding:10px;
 }
 .gobtn{
-    margin-left: -30px;
+    margin-left: -50px;
+    margin-top:24px;
 
 }
 .filterIcon{
